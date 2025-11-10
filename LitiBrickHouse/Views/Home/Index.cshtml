@@ -1,0 +1,111 @@
+﻿@{
+    ViewData["Title"] = "Trang Chủ";
+}
+
+<style>
+    /* Chúng ta cần "reset" lại lề của container
+      để các dải màu (hồng, xanh) kéo hết màn hình
+    */
+    .container {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Ghi đè lề mặc định của Main */
+    main[role="main"] {
+        padding: 0;
+    }
+
+    /* 1. Thanh Header Logo */
+    .header-brand {
+        background-color: #FFF0F5; /* Màu hồng phấn nhạt (từ ảnh) */
+        padding: 20px 0;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+    .header-brand img {
+        max-height: 80px; /* Điều chỉnh chiều cao logo */
+    }
+
+    /* 2. Khu vực Hero (Cảnh quan) */
+    .hero-landscape {
+        /* BẠN PHẢI TẠO 1 ẢNH .png HOẶC .jpg CỦA CẢNH QUAN
+          VÀ LƯU VÀO THƯ MỤC /wwwroot/images/homepage/hero_background.png
+        */
+        background-image: url("/images/homepage/hero_background.png");
+        background-size: cover;
+        background-position: center bottom;
+        height: 60vh; /* Chiều cao bằng 60% màn hình */
+        position: relative; /* Dùng để căn giữa text */
+        padding: 2rem;
+    }
+
+    /* 3. Khối văn bản trên Hero */
+    .hero-text-content {
+        position: absolute;
+        top: 50%;
+        right: 10%; /* Căn lề phải 10% */
+        transform: translateY(-50%);
+        text-align: right;
+        color: #333;
+    }
+    .hero-text-content h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+    .hero-text-content p {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* 4. Nút Đặt hàng (Call to Action) */
+    .cta-button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 25px;
+        background-color: white;
+        border-radius: 30px; /* Bo tròn */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        color: #212529;
+        font-weight: bold;
+        font-style: italic; /* Chữ nghiêng */
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+
+    /* 5. Khu vực Chính sách */
+    .policy-section {
+        padding: 3rem 0;
+        text-align: center;
+        background-color: #fff;
+    }
+    .policy-section h2 {
+        font-weight: 700;
+    }
+
+</style>
+
+<header class="header-brand">
+    <img src="/images/homepage/liti_logo.png" alt="Liti Brick Houses Logo">
+</header>
+
+<div class="hero-landscape">
+    <div class="hero-text-content">
+        <h1>Thêm tiêu đề</h1>
+        <p>Thêm nội dung văn bản</p>
+
+        <a asp-controller="Order" asp-action="StartNewOrder" class="cta-button">
+            Đặt hàng tại đây !!
+        </a>
+    </div>
+</div>
+
+<section class="policy-section">
+    <h2>chính sách bảo hành</h2>
+</section>

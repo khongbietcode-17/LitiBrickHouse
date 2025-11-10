@@ -1,0 +1,649 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\views\\orders\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\views\\orders\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\enums\\gendertype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\enums\\gendertype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\views\\orders\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\views\\orders\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\scaffoldingreadme.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\scaffoldingreadme.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\litibrickhouse.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\litibrickhouse.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\views\\customoptions\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\views\\customoptions\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\views\\order\\stage4_shippinginfo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\views\\order\\stage4_shippinginfo.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\viewmodel\\orderbuilderviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\viewmodel\\orderbuilderviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\views\\order\\stage3_customizelego.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\views\\order\\stage3_customizelego.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\views\\order\\stage3_selectsportplayer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\views\\order\\stage3_selectsportplayer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\controllers\\customoptionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\controllers\\customoptionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\controllers\\optioncategoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\controllers\\optioncategoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\wwwroot\\images\\head\\mat1.png||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\wwwroot\\images\\head\\mat1.png||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\views\\customoptions\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\views\\customoptions\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\data\\migrations\\20251107111623_fixquantityandthumbnailareoptional.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\data\\migrations\\20251107111623_fixquantityandthumbnailareoptional.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\models\\customoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\models\\customoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\views\\customoptions\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\views\\customoptions\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\wwwroot\\images\\head\\mat11.png||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\wwwroot\\images\\head\\mat11.png||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\views\\order\\thankyou.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\views\\order\\thankyou.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\views\\order\\stage5_confirm.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\views\\order\\stage5_confirm.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\views\\order\\stage2_selectbackground.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\views\\order\\stage2_selectbackground.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\views\\order\\stage1_selecttype.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\views\\order\\stage1_selecttype.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\viewmodel\\legocustomizationset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\viewmodel\\legocustomizationset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\models\\ordercustomlego.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\models\\ordercustomlego.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\models\\optioncategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\models\\optioncategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\models\\producttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\models\\producttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\extensions\\sessionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\extensions\\sessionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|d:\\\u0111\u1ED3 \u00E1n m\u00F4n aspnet\\litibrickhouse\\litibrickhouse\\sessionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3364ED1C-A811-45B3-A479-B5EAD0614ABA}|LitiBrickHouse\\LitiBrickHouse.csproj|solutionrelative:litibrickhouse\\sessionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "site.css",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\wwwroot\\css\\site.css",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "LitiBrickHouse\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAswFwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-11-08T19:28:59.551Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Controllers\\OrdersController.cs",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "LitiBrickHouse\\Controllers\\OrdersController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-08T18:18:27.696Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Controllers\\OrderController.cs",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "LitiBrickHouse\\Controllers\\OrderController.cs",
+              "ViewState": "AgIAAGIBAAAAAAAAAAAswHsBAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T18:13:42.114Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Stage3_CustomizeLego.cshtml",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\Order\\Stage3_CustomizeLego.cshtml",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Views\\Order\\Stage3_CustomizeLego.cshtml",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\Order\\Stage3_CustomizeLego.cshtml",
+              "RelativeToolTip": "LitiBrickHouse\\Views\\Order\\Stage3_CustomizeLego.cshtml",
+              "ViewState": "AgIAAGcBAAAAAAAAAAAwwIEBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-06T18:38:45.482Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "LitiBrickHouse\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAFwAAAAAAAAAAADwv3UAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-08T17:43:23.83Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\CustomOptions\\Index.cshtml",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Views\\CustomOptions\\Index.cshtml",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\CustomOptions\\Index.cshtml",
+              "RelativeToolTip": "LitiBrickHouse\\Views\\CustomOptions\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJoAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-08T17:44:16.903Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Program.cs",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Program.cs",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Program.cs",
+              "RelativeToolTip": "LitiBrickHouse\\Program.cs",
+              "ViewState": "AgIAAIsAAAAAAAAAAAAAAKMAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T17:53:05.208Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GenderType.cs",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Enums\\GenderType.cs",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Enums\\GenderType.cs",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Enums\\GenderType.cs",
+              "RelativeToolTip": "LitiBrickHouse\\Enums\\GenderType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T18:05:35.525Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "LitiBrickHouse\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAwwG4AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-06T18:22:46.928Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\Orders\\Index.cshtml",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Views\\Orders\\Index.cshtml",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\Orders\\Index.cshtml",
+              "RelativeToolTip": "LitiBrickHouse\\Views\\Orders\\Index.cshtml",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAAAFYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-08T18:19:29.724Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Order.cs",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Models\\Order.cs",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Models\\Order.cs",
+              "RelativeToolTip": "LitiBrickHouse\\Models\\Order.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAowCAAAABjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T18:07:14.595Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ScaffoldingReadMe.txt",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\ScaffoldingReadMe.txt",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\ScaffoldingReadMe.txt",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\ScaffoldingReadMe.txt",
+              "RelativeToolTip": "LitiBrickHouse\\ScaffoldingReadMe.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-11-08T18:32:34.321Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\Orders\\Details.cshtml",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Views\\Orders\\Details.cshtml",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\Orders\\Details.cshtml",
+              "RelativeToolTip": "LitiBrickHouse\\Views\\Orders\\Details.cshtml",
+              "ViewState": "AgIAADoAAAAAAAAAAAAAAG8AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-08T18:39:49.11Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "_LoginPartial.cshtml",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Views\\Shared\\_LoginPartial.cshtml",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeToolTip": "LitiBrickHouse\\Views\\Shared\\_LoginPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-08T18:33:52.081Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\CustomOptions\\Create.cshtml",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Views\\CustomOptions\\Create.cshtml",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\CustomOptions\\Create.cshtml",
+              "RelativeToolTip": "LitiBrickHouse\\Views\\CustomOptions\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-07T10:24:32.135Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "LitiBrickHouse.csproj",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\LitiBrickHouse.csproj",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\LitiBrickHouse.csproj",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\LitiBrickHouse.csproj",
+              "RelativeToolTip": "LitiBrickHouse\\LitiBrickHouse.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-06T17:56:43.28Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "OrderBuilderViewModel.cs",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\ViewModel\\OrderBuilderViewModel.cs",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\ViewModel\\OrderBuilderViewModel.cs",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\ViewModel\\OrderBuilderViewModel.cs",
+              "RelativeToolTip": "LitiBrickHouse\\ViewModel\\OrderBuilderViewModel.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAwwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T18:12:36.419Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Stage4_ShippingInfo.cshtml",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\Order\\Stage4_ShippingInfo.cshtml",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Views\\Order\\Stage4_ShippingInfo.cshtml",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\Order\\Stage4_ShippingInfo.cshtml",
+              "RelativeToolTip": "LitiBrickHouse\\Views\\Order\\Stage4_ShippingInfo.cshtml",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-06T18:40:25.524Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Stage3_SelectSportPlayer.cshtml",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\Order\\Stage3_SelectSportPlayer.cshtml",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Views\\Order\\Stage3_SelectSportPlayer.cshtml",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\Order\\Stage3_SelectSportPlayer.cshtml",
+              "RelativeToolTip": "LitiBrickHouse\\Views\\Order\\Stage3_SelectSportPlayer.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAADAAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-06T18:37:46.467Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "CustomOptionsController.cs",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Controllers\\CustomOptionsController.cs",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Controllers\\CustomOptionsController.cs",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Controllers\\CustomOptionsController.cs",
+              "RelativeToolTip": "LitiBrickHouse\\Controllers\\CustomOptionsController.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAswDMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T10:16:54.684Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "OptionCategoriesController.cs",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Controllers\\OptionCategoriesController.cs",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Controllers\\OptionCategoriesController.cs",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Controllers\\OptionCategoriesController.cs",
+              "RelativeToolTip": "LitiBrickHouse\\Controllers\\OptionCategoriesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-08T17:42:00.327Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "mat1.png - PNG [74x80, 32 bit, PNG]",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\wwwroot\\images\\head\\mat1.png",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\wwwroot\\images\\head\\mat1.png",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\wwwroot\\images\\head\\mat1.png - PNG [74x80, 32 bit, PNG]",
+              "RelativeToolTip": "LitiBrickHouse\\wwwroot\\images\\head\\mat1.png - PNG [74x80, 32 bit, PNG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2025-11-07T10:32:24.903Z",
+              "EditorCaption": " - PNG [74x80, 32 bit, PNG]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "mat11.png - PNG [1024x1024, 32 bit, PNG]",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\wwwroot\\images\\head\\mat11.png",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\wwwroot\\images\\head\\mat11.png",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\wwwroot\\images\\head\\mat11.png - PNG [1024x1024, 32 bit, PNG]",
+              "RelativeToolTip": "LitiBrickHouse\\wwwroot\\images\\head\\mat11.png - PNG [1024x1024, 32 bit, PNG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2025-11-07T10:32:43.983Z",
+              "EditorCaption": " - PNG [1024x1024, 32 bit, PNG]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "20251107111623_FixQuantityAndThumbnailAreOptional.cs",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Data\\Migrations\\20251107111623_FixQuantityAndThumbnailAreOptional.cs",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Data\\Migrations\\20251107111623_FixQuantityAndThumbnailAreOptional.cs",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Data\\Migrations\\20251107111623_FixQuantityAndThumbnailAreOptional.cs",
+              "RelativeToolTip": "LitiBrickHouse\\Data\\Migrations\\20251107111623_FixQuantityAndThumbnailAreOptional.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T11:17:18.15Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\CustomOptions\\Edit.cshtml",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Views\\CustomOptions\\Edit.cshtml",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\CustomOptions\\Edit.cshtml",
+              "RelativeToolTip": "LitiBrickHouse\\Views\\CustomOptions\\Edit.cshtml",
+              "ViewState": "AgIAACgAAAAAAAAAAAAwwEIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-07T11:26:23.307Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Stage2_SelectBackground.cshtml",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\Order\\Stage2_SelectBackground.cshtml",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Views\\Order\\Stage2_SelectBackground.cshtml",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\Order\\Stage2_SelectBackground.cshtml",
+              "RelativeToolTip": "LitiBrickHouse\\Views\\Order\\Stage2_SelectBackground.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAACwAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-06T18:35:04.143Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "CustomOption.cs",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Models\\CustomOption.cs",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Models\\CustomOption.cs",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Models\\CustomOption.cs",
+              "RelativeToolTip": "LitiBrickHouse\\Models\\CustomOption.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAQwCYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T18:06:14.754Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Stage5_Confirm.cshtml",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\Order\\Stage5_Confirm.cshtml",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Views\\Order\\Stage5_Confirm.cshtml",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\Order\\Stage5_Confirm.cshtml",
+              "RelativeToolTip": "LitiBrickHouse\\Views\\Order\\Stage5_Confirm.cshtml",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAAAFEAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-06T18:41:09.298Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "ThankYou.cshtml",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\Order\\ThankYou.cshtml",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Views\\Order\\ThankYou.cshtml",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\Order\\ThankYou.cshtml",
+              "RelativeToolTip": "LitiBrickHouse\\Views\\Order\\ThankYou.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-06T18:41:21.917Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Stage1_SelectType.cshtml",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\Order\\Stage1_SelectType.cshtml",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Views\\Order\\Stage1_SelectType.cshtml",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Views\\Order\\Stage1_SelectType.cshtml",
+              "RelativeToolTip": "LitiBrickHouse\\Views\\Order\\Stage1_SelectType.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACgAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-06T18:16:05.86Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "LegoCustomizationSet.cs",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\ViewModel\\LegoCustomizationSet.cs",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\ViewModel\\LegoCustomizationSet.cs",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\ViewModel\\LegoCustomizationSet.cs",
+              "RelativeToolTip": "LitiBrickHouse\\ViewModel\\LegoCustomizationSet.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T18:12:14.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "LitiBrickHouse\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T18:09:08.181Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "OrderItem.cs",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Models\\OrderItem.cs",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Models\\OrderItem.cs",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Models\\OrderItem.cs",
+              "RelativeToolTip": "LitiBrickHouse\\Models\\OrderItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T18:08:26.671Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "OrderCustomLego.cs",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Models\\OrderCustomLego.cs",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Models\\OrderCustomLego.cs",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Models\\OrderCustomLego.cs",
+              "RelativeToolTip": "LitiBrickHouse\\Models\\OrderCustomLego.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T18:07:50.017Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\appsettings.json",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\appsettings.json",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\appsettings.json",
+              "RelativeToolTip": "LitiBrickHouse\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-06T17:52:49.799Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "OptionCategory.cs",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Models\\OptionCategory.cs",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Models\\OptionCategory.cs",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Models\\OptionCategory.cs",
+              "RelativeToolTip": "LitiBrickHouse\\Models\\OptionCategory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T18:04:07.636Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "ProductType.cs",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Models\\ProductType.cs",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Models\\ProductType.cs",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Models\\ProductType.cs",
+              "RelativeToolTip": "LitiBrickHouse\\Models\\ProductType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T18:02:23.98Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "SessionExtensions.cs",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Extensions\\SessionExtensions.cs",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\Extensions\\SessionExtensions.cs",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\Extensions\\SessionExtensions.cs",
+              "RelativeToolTip": "LitiBrickHouse\\Extensions\\SessionExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T18:00:55.697Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "SessionExtensions.cs",
+              "DocumentMoniker": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\SessionExtensions.cs",
+              "RelativeDocumentMoniker": "LitiBrickHouse\\SessionExtensions.cs",
+              "ToolTip": "D:\\\u0110\u1ED3 \u00E1n m\u00F4n ASPNET\\LitiBrickHouse\\LitiBrickHouse\\SessionExtensions.cs",
+              "RelativeToolTip": "LitiBrickHouse\\SessionExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T17:56:59.189Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

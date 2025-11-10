@@ -1,0 +1,82 @@
+﻿@model LitiBrickHouse.ViewModels.OrderBuilderViewModel
+@{
+    ViewData["Title"] = "Giai đoạn 5: Xác nhận Đơn hàng";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <h1 class="my-4 text-center">Giai đoạn 5: Xác nhận Đơn hàng</h1>
+            <p class="lead text-center">Vui lòng kiểm tra lại toàn bộ thông tin trước khi hoàn tất.</p>
+            <hr />
+
+            <h3>Thông tin Giao hàng</h3>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <p><strong>Họ và Tên:</strong> @Model.CustomerName</p>
+                    <p><strong>Số Điện Thoại:</strong> @Model.PhoneNumber</p>
+                    <p><strong>Địa chỉ:</strong> @Model.Address</p>
+                    <a asp-action="Stage4_ShippingInfo" class="btn btn-sm btn-outline-secondary">Thay đổi</a>
+                </div>
+            </div>
+
+            <h3>Chi tiết Sản phẩm</h3>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <p>
+                        <strong>Loại Sản phẩm:</strong> @Model.SelectedProductType?.Name
+                        (@Model.SelectedProductType?.BasePrice.ToString("N0") VNĐ)
+                        <a asp-action="Stage1_SelectType" class="btn btn-sm btn-outline-secondary float-end">Thay đổi</a>
+                    </p>
+                    <hr>
+                    <p>
+                        <strong>Background:</strong> @Model.SelectedBackground?.Name
+                        (+@Model.SelectedBackground?.AdditionalPrice.ToString("N0") VNĐ)
+                        <a asp-action="Stage2_SelectBackground" class="btn btn-sm btn-outline-secondary float-end">Thay đổi</a>
+                    </p>
+                    <hr>
+                    <p>
+                        <strong>Ghi chú:</strong> @(string.IsNullOrEmpty(Model.CustomerNote) ? "(Không có)" : Model.CustomerNote)
+                    </p>
+                </div>
+            </div>
+
+            <h3>Chi tiết Tùy chỉnh</h3>
+            <div class="card mb-3">
+                <div class="card-body">
+                    @if (Model.ProductTypeId == 3) // Lego Sport
+                    {
+                        <p>
+                            <strong>Cầu thủ:</strong> @Model.SelectedSportPlayer?.Name
+                            (+@Model.SelectedSportPlayer?.AdditionalPrice.ToString("N0") VNĐ)
+                        </p>
+                    }
+                    else // Lego Tùy chỉnh
+                    {
+                        <p><strong>Lego 1:</strong> (Hiển thị Tóc, Mặt... đã chọn)</p>
+                        @if (Model.ProductTypeId == 2)
+                        {
+                            <p><strong>Lego 2:</strong> (Hiển thị Tóc, Mặt... đã chọn)</p>
+                        }
+                    }
+                    <a asp-action="Stage3_Customize" class="btn btn-sm btn-outline-secondary">Thay đổi</a>
+                </div>
+            </div>
+
+            <div class="alert alert-success text-center">
+                <h3>TỔNG TIỀN</h3>
+                <h1 class="display-4">@Model.TotalPrice.ToString("N0") VNĐ</h1>
+            </div>
+
+            <form asp-action="Stage5_CompleteOrder" method="post">
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        XÁC NHẬN VÀ HOÀN TẤT ĐẶT HÀNG
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

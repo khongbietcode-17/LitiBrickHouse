@@ -1,0 +1,59 @@
+﻿@model LitiBrickHouse.ViewModels.OrderBuilderViewModel
+@{
+    ViewData["Title"] = "Giai đoạn 4: Thông tin Giao hàng";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <h1 class="my-4 text-center">Giai đoạn 4: Thông tin Giao hàng</h1>
+            <p class="lead text-center">Vui lòng nhập thông tin của bạn để chúng tôi giao hàng.</p>
+            <hr />
+
+            <form asp-action="Stage4_ShippingInfo" method="post">
+
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="SocialMediaName" class="form-label">Tên Mạng Xã hội (Facebook, Zalo... nếu có)</label>
+                    <input asp-for="SocialMediaName" class="form-control" placeholder="Ví dụ: Nguyen Van A (Facebook)" />
+                </div>
+                <div class="d-flex justify-content-between my-4">
+
+                <div class="mb-3">
+                    <label asp-for="CustomerName" class="form-label">Họ và Tên</label>
+                    <input asp-for="CustomerName" class="form-control" placeholder="Nguyễn Văn A" />
+                    <span asp-validation-for="CustomerName" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="PhoneNumber" class="form-label">Số Điện Thoại</label>
+                    <input asp-for="PhoneNumber" class="form-control" placeholder="09xxxxxxxx" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Address" class="form-label">Địa chỉ Nhận hàng</label>
+                    <input asp-for="Address" class="form-control" placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/TP" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex justify-content-between my-4">
+                    <a asp-action="Stage3_Customize" class="btn btn-outline-secondary">
+                        &laquo; Quay lại
+                    </a>
+                    <button type="submit" class="btn btn-primary">
+                        Tiếp tục đến Giai đoạn 5 &raquo;
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+@* Thêm section Scripts để kích hoạt validation (bắt lỗi) phía client *@
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

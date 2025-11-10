@@ -1,0 +1,41 @@
+﻿@model IEnumerable<LitiBrickHouse.Models.ProductType>
+@{
+    ViewData["Title"] = "Giai đoạn 1: Chọn Loại Sản Phẩm";
+}
+
+<div class="container text-center">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+
+            <h1 class="my-4">Giai đoạn 1: Chọn Loại Sản Phẩm Của Bạn</h1>
+            <p class="lead">Hãy bắt đầu bằng cách chọn một trong các loại sản phẩm bên dưới.</p>
+            <hr />
+
+            <form asp-action="Stage1_SelectType" method="post">
+                <div class="row g-4">
+
+                    @foreach (var type in Model)
+                    {
+                        <div class="col-md-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">@type.Name</h5>
+                                    <p class="card-text">@type.Description</p>
+
+                                    <h4 class="card-text text-danger">@type.BasePrice.ToString("N0") VNĐ</h4>
+
+                                    <button type="submit" name="productTypeId" value="@type.Id"
+                                            class="btn btn-primary mt-auto">
+                                        Chọn loại này
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

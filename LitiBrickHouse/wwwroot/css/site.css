@@ -1,0 +1,93 @@
+﻿html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+/* === CSS THANH TIẾN ĐỘ ĐẶT HÀNG === */
+.order-progress-bar {
+    background-color: #222; /* Nền đen/tối như hình */
+    padding: 25px 0;
+    margin-bottom: 2rem;
+}
+
+.progress-steps {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #888; /* Màu chữ (chưa active) */
+    font-size: 0.8rem;
+    font-weight: bold;
+    flex: 1; /* Chia đều không gian */
+    position: relative;
+    max-width: 180px; /* Giới hạn chiều rộng mỗi bước */
+}
+
+/* Biểu tượng (Icon) */
+.progress-step-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #444; /* Màu vòng tròn (chưa active) */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Đường kẻ nối */
+.progress-step::before {
+    content: '';
+    position: absolute;
+    top: 30px; /* Căn giữa vòng tròn */
+    left: -50%;
+    width: 100%;
+    height: 2px;
+    background-color: #444; /* Màu đường kẻ (chưa active) */
+    z-index: 1;
+}
+
+/* Bỏ đường kẻ của bước đầu tiên */
+.progress-step:first-child::before {
+    display: none;
+}
+
+/* Trạng thái "Active" (đang ở bước đó) */
+.progress-step.active {
+    color: white; /* Màu chữ (active) */
+}
+
+    .progress-step.active .progress-step-icon {
+        background-color: #e6007e; /* Màu hồng (active) như hình */
+        box-shadow: 0 0 15px rgba(230, 0, 126, 0.7);
+    }

@@ -1,0 +1,112 @@
+﻿@model LitiBrickHouse.Models.Order
+
+@{
+    ViewData["Title"] = "Chi tiết Đơn hàng #" + Model.Id;
+}
+
+<h1>Chi tiết Đơn hàng #@Model.Id</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h4>Thông tin Khách hàng</h4>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-5">Tên Khách hàng:</dt>
+                    <dd class="col-sm-7">@Model.CustomerName</dd>
+
+                    <dt class="col-sm-5">Số Điện thoại:</dt>
+                    <dd class="col-sm-7">@Model.PhoneNumber</dd>
+
+                    <dt class="col-sm-5">Địa chỉ:</dt>
+                    <dd class="col-sm-7">@Model.Address</dd>
+
+                    <dt class="col-sm-5">Tên Mạng Xã hội:</dt>
+                    <dd class="col-sm-7">@(Model.SocialMediaName ?? "(Không có)")</dd>
+
+                    <dt class="col-sm-5">Ghi chú:</dt>
+                    <dd class="col-sm-7">@(Model.Note ?? "(Không có)")</dd>
+
+                    <dt class="col-sm-5">Ngày đặt:</dt>
+                    <dd class="col-sm-7">@Model.OrderDate</dd>
+
+                    <dt class="col-sm-5 text-danger">Tổng tiền:</dt>
+                    <dd class="col-sm-7 text-danger"><strong>@Model.TotalPrice.ToString("N0") VNĐ</strong></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h4>Chi tiết Sản phẩm (Tên chi tiết)</h4>
+            </div>
+            <div class="card-body">
+
+                @if (Model.OrderItems != null && Model.OrderItems.Any())
+                {
+                    <h5>Các món đồ:</h5>
+                    <ul>
+                        @foreach (var item in Model.OrderItems)
+                        {
+                            <li>
+                                <strong>@item.CustomOption.OptionCategory.Name:</strong>
+                                @item.CustomOption.Name
+                                (+@item.CustomOption.AdditionalPrice.ToString("N0")đ)
+                            </li>
+                        }
+                    </ul>
+                }
+
+                @if (Model.CustomLegos != null && Model.CustomLegos.Any())
+                {
+                    <h5>Các bộ Lego tùy chỉnh:</h5>
+                    int legoCounter = 1;
+                    foreach (var lego in Model.CustomLegos)
+                    {
+                        <div class="card mb-2">
+                            <div class="card-body p-3">
+                                <strong>Bộ Lego @(legoCounter++):</strong>
+                                <ul>
+                                    @if (lego.Hair != null)
+                                    {
+                                        <li><strong>Tóc:</strong> @lego.Hair.Name</li>
+                                    }
+                                    @if (lego.Face != null)
+                                    {
+                                        <li><strong>Mặt:</strong> @lego.Face.Name</li>
+                                    }
+                                    @if (lego.Clothes != null)
+                                    {
+                                        <li><strong>Áo:</strong> @lego.Clothes.Name</li>
+                                    }
+                                    @if (lego.Pants != null)
+                                    {
+                                        <li><strong>Quần:</strong> @lego.Pants.Name</li>
+                                    }
+                                    @if (lego.Accessory1 != null)
+                                    {
+                                        <li><strong>Phụ kiện 1:</strong> @lego.Accessory1.Name</li>
+                                    }
+                                    @if (lego.Accessory2 != null)
+                                    {
+                                        <li><strong>Phụ kiện 2:</strong> @lego.Accessory2.Name</li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    }
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<div>
+    <a asp-action="Index" class="btn btn-outline-secondary">Quay lại Danh sách Đơn hàng</a>
+</div>

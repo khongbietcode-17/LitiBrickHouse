@@ -1,0 +1,155 @@
+﻿@model IEnumerable<LitiBrickHouse.Models.CustomOption>
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{
+    ViewData["Title"] = "Quản lý Phụ kiện";
+    // Lấy danh sách danh mục (để tạo menu bên trái)
+    var categories = ViewBag.CategoryFilter as SelectList;
+
+    // Lấy ID của danh mục đang được chọn (để biết link nào "active")
+    var currentCategoryId = categories?.SelectedValue?.ToString();
+
+    // Lấy Tên của danh mục đang được chọn (để làm Tiêu đề)
+    var currentCategoryName = "Tất cả Phụ kiện"; // Tiêu đề mặc định
+    if (currentCategoryId != null)
+    {
+        currentCategoryName = categories.FirstOrDefault(c => c.Value == currentCategoryId)?.Text;
+    }
+}
+
+<style>
+    /* Thanh menu Danh mục (bên trái) */
+    .admin-sidebar {
+        background-color: #f8f9fa; /* Màu nền xám nhẹ */
+        border-radius: 8px;
+        padding: 15px;
+    }
+
+        .admin-sidebar .nav-link {
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+            .admin-sidebar .nav-link:hover {
+                background-color: #e9ecef;
+            }
+            /* Màu xanh "nhẹ nhàng" cho link được chọn (active) */
+            .admin-sidebar .nav-link.active {
+                background-color: #cce5ff; /* Màu xanh nhạt */
+                color: #004085; /* Màu xanh đậm */
+            }
+
+    /* Lưới Phụ kiện (bên phải) */
+    .product-grid-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /* Khoảng cách giữa các món */
+    }
+
+    /* Thẻ (Card) của từng Phụ kiện */
+    .product-card {
+        width: 120px; /* Kích thước thẻ */
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+        .product-card:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+    /* Ảnh thu nhỏ (Thumbnail) */
+    .product-card-img {
+        width: 100%;
+        height: 100px; /* Chiều cao ảnh */
+        object-fit: contain; /* Hiển thị đẹp, không bị méo */
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+    }
+
+    /* Tên và Số lượng */
+    .product-card-body {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .product-card-name {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #333;
+        /* Ngăn chữ quá dài */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .product-card-quantity {
+        font-size: 0.8rem;
+        color: #6c757d; /* Màu xám */
+    }
+</style>
+
+<div class="row">
+
+    <div class="col-md-3">
+        <div class="admin-sidebar">
+            <h5 class="px-3 pt-2">Danh mục</h5>
+            <nav class="nav flex-column nav-pills p-2">
+
+                <a class="nav-link @(currentCategoryId == null ? "active" : "")"
+                   asp-action="Index">
+                    -- Xem Tất cả --
+                </a>
+
+                @foreach (var category in categories)
+                {
+                    <a class="nav-link @(category.Value == currentCategoryId ? "active" : "")"
+                       asp-action="Index" asp-route-categoryId="@category.Value">
+                        @category.Text
+                    </a>
+                }
+            </nav>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2>@currentCategoryName</h2>
+            <a asp-action="Create" class="btn btn-primary">Thêm Phụ kiện mới</a>
+        </div>
+
+        <div class="product-grid-container">
+
+            @if (!Model.Any())
+            {
+                <p class="text-muted">Không tìm thấy phụ kiện nào trong danh mục này.</p>
+            }
+
+            @foreach (var item in Model)
+            {
+                <div class="product-card">
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="text-decoration-none">
+
+                        <img src="@(item.ThumbnailUrl ?? item.ImageUrl ?? "/images/placeholder.png")"
+                             class="product-card-img" alt="@item.Name">
+
+                        <div class="product-card-body">
+                            <div class="product-card-name" title="@item.Name">
+                                @item.Name
+                            </div>
+                            <div class="product-card-quantity">
+                                SL: @(item.Quantity?.ToString() ?? "Vô hạn")
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
