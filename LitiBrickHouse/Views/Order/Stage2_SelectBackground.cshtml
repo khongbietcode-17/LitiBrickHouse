@@ -1,71 +1,173 @@
 ﻿@model LitiBrickHouse.ViewModels.OrderBuilderViewModel
-@using LitiBrickHouse.Models 
+@using LitiBrickHouse.Models
 @{
     ViewData["Title"] = "Giai đoạn 2: Chọn Background";
     // Lấy danh sách Background đã được lọc từ Controller
     var backgrounds = ViewBag.AvailableBackgrounds as List<CustomOption>;
 }
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-10">
+<style>
+    /* Áp dụng font chữ mới */
+    .stage2-container, .stage2-container h1, .stage2-container h4, .stage2-container h5, .stage2-container p, .stage2-container label {
+        font-family: 'Nunito', sans-serif;
+    }
 
-            <h1 class="my-4 text-center">Giai đoạn 2: Chọn Background & Ghi Chú</h1>
-            <hr />
+    .stage2-title {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 800; /* Rất đậm */
+        font-size: 2.5rem;
+        color: #ffffff; /* Màu trắng (như GĐ 1) */
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+    }
+
+    .stage2-subtitle {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 400;
+        font-size: 1rem;
+        color: #fce1e1; /* Màu hồng rất nhạt */
+        margin-bottom: 2rem;
+        max-width: 600px; /* Giới hạn chiều rộng */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Ẩn radio button gốc */
+    .form-check-input {
+        display: none;
+    }
+
+    /* Thẻ (card) cho Background */
+    .bg-card {
+        background-color: #fff;
+        border: 2px solid transparent;
+        border-radius: 20px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        padding: 1.5rem;
+        text-align: left;
+        height: 100%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    /* Hiệu ứng khi được chọn */
+    .form-check-input:checked + .bg-card {
+        border-color: #E6007E;
+        box-shadow: 0 12px 30px rgba(230, 0, 126, 0.2);
+        transform: translateY(-5px);
+    }
+
+    .bg-card-img {
+        width: 100%;
+        aspect-ratio: 1 / 1; /* Luôn là hình vuông */
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+    }
+
+    .bg-card h5 {
+        font-weight: 800;
+        color: #333;
+        font-size: 1.1rem;
+    }
+
+    .bg-card p {
+        font-size: 0.9rem;
+        color: #6c757d;
+        margin-bottom: 0;
+    }
+
+    /* Nút điều hướng */
+    .btn-nav-secondary {
+        background-color: #fff;
+        border: 2px solid #E6007E;
+        color: #E6007E;
+        font-weight: 700;
+        border-radius: 30px;
+        padding: 10px 25px;
+        transition: all 0.3s ease;
+    }
+
+        .btn-nav-secondary:hover {
+            background-color: #E6007E;
+            color: #fff;
+        }
+
+    .btn-nav-primary {
+        background-color: #E6007E;
+        border: 2px solid #E6007E;
+        color: #fff;
+        font-weight: 700;
+        border-radius: 30px;
+        padding: 10px 25px;
+        transition: all 0.3s ease;
+    }
+
+        .btn-nav-primary:hover {
+            background-color: #c20067;
+            border-color: #c20067;
+        }
+
+</style>
+
+<div class="container stage2-container">
+    <div class="row justify-content-center">
+        <div class="col-lg-10 text-center">
+
+            <h1 class="stage2-title">Giai đoạn 2: Chọn Background</h1>
+            <p class="stage2-subtitle">
+                Lưu Ý: Các bạn hãy ghi chú chính xác thông tin và đầy đủ theo background các bạn chọn giúp shop nha, nếu mẫu có ảnh bạn hãy gửi ảnh qua nền tảng bạn đang nhắn tin với shop nhé!
+            </p>
 
             <form asp-action="Stage2_SelectBackground" method="post">
-                
+
                 <h4>Chọn một Background</h4>
-                
+
                 @if (backgrounds == null || !backgrounds.Any())
                 {
                     <div class="alert alert-warning">
                         Không tìm thấy background nào phù hợp (hoặc đã hết hàng).
-                        Vui lòng liên hệ Admin để thêm sản phẩm.
                     </div>
                 }
                 else
                 {
-                    <div class="row g-3">
+                    <div class="row g-3 justify-content-center">
                         @foreach (var bg in backgrounds)
                         {
-                            <div class="col-md-4 col-6">
-                                <div class="card h-100">
-                                    <img src="@(bg.ImageUrl ?? "/images/placeholder.png")" class="card-img-top img-fluid" alt="@bg.Name" style="aspect-ratio: 1 / 1; object-fit: cover;">
-                                    
-                                    <div class="card-body text-center d-flex flex-column">
-                                        <h5 class="card-title fs-6">@bg.Name</h5>
-                                        <p class="text-danger small">
-                                            + @bg.AdditionalPrice.ToString("N0") VNĐ
-                                        </p>
-                                        
-                                        <div class="mt-auto">
-                                            <input type="radio" class="form-check-input" 
-                                                   asp-for="BackgroundId" value="@bg.Id" 
-                                                   id="bg-@bg.Id" required />
-                                                  
-                                            <label class="form-check-label" for="bg-@bg.Id">Chọn</label>
-                                        </div>
+                            <div class="col-lg-4 col-md-6">
+                                <input type="radio" class="form-check-input"
+                                       asp-for="BackgroundId" value="@bg.Id"
+                                       id="bg-@bg.Id" required>
+
+                                <label class="bg-card" for="bg-@bg.Id">
+                                    <img src="@(bg.ThumbnailUrl ?? bg.ImageUrl ?? "/images/placeholder.png")" alt="@bg.Name" class="bg-card-img">
+                                    <div class="bg-card-body">
+                                        <h5>@bg.Name</h5>
+                                        @if (!string.IsNullOrEmpty(bg.Size))
+                                        {
+                                            <p>Kích thước: @bg.Size</p>
+                                        }
+                                        <p>Giá: @bg.AdditionalPrice.ToString("N0") VNĐ</p>
                                     </div>
-                                </div>
+                                </label>
                             </div>
                         }
                     </div>
                 }
-                
-                <hr class="my-4" />
 
-                <div class="mb-3">
-                    <label asp-for="CustomerNote" class="form-label">Ghi chú (nếu có):</label>
-                    <textarea asp-for="CustomerNote" class="form-control" rows="3"></textarea>
+                <hr class="my-4" style="border-color: #f9d4d4;" />
+
+                <div class="mb-3 text-start" style="max-width: 600px; margin-left: auto; margin-right: auto;">
+                    <label asp-for="CustomerNote" class="form-label" style="font-weight: 700; font-size: 1.2rem; color: #fff;">Ghi chú (nếu có):</label>
+                    <textarea asp-for="CustomerNote" class="form-control" rows="3" style="border-radius: 12px;"></textarea>
                 </div>
 
-                <div class="d-flex justify-content-between my-4">
-                    <a asp-action="Stage1_SelectType" class="btn btn-outline-secondary">
+                <div class="d-flex justify-content-between my-4" style="max-width: 600px; margin-left: auto; margin-right: auto;">
+                    <a asp-action="Stage1_SelectType" class="btn btn-nav-secondary">
                         &laquo; Quay lại
                     </a>
-                    <button type="submit" class="btn btn-primary" 
-                        @( (backgrounds == null || !backgrounds.Any()) ? "disabled" : "" )>
+                    <button type="submit" class="btn btn-nav-primary"
+                            @( (backgrounds == null || !backgrounds.Any()) ? "disabled" : "" )>
                         Tiếp tục đến Giai đoạn 3 &raquo;
                     </button>
                 </div>

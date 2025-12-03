@@ -1,28 +1,30 @@
 ﻿html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #ffb7b7; /* Toàn bộ nền body là màu hồng */
 }
-/* === CSS THANH TIẾN ĐỘ ĐẶT HÀNG === */
+
+/* === CSS THANH TIẾN ĐỘ ĐẶT HÀNG (CHỦ ĐỀ HỒNG) === */
 .order-progress-bar {
-    background-color: #222; /* Nền đen/tối như hình */
+    /* Bỏ nền đen, dùng nền hồng của body */
     padding: 25px 0;
     margin-bottom: 2rem;
 }
@@ -41,21 +43,21 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    color: #888; /* Màu chữ (chưa active) */
+    color: #f9d4d4; 
     font-size: 0.8rem;
     font-weight: bold;
-    flex: 1; /* Chia đều không gian */
+    flex: 1;
     position: relative;
-    max-width: 180px; /* Giới hạn chiều rộng mỗi bước */
+    max-width: 180px;
 }
 
-/* Biểu tượng (Icon) */
+
 .progress-step-icon {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background-color: #444; /* Màu vòng tròn (chưa active) */
-    color: white;
+    background-color: #f9d4d4; /* Màu vòng tròn (hồng rất nhạt) */
+    color: #ffb7b7; /* Màu icon bên trong */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,21 +65,21 @@ body {
     margin-bottom: 10px;
     position: relative;
     z-index: 2;
+    transition: all 0.3s ease;
 }
 
-/* Đường kẻ nối */
+
 .progress-step::before {
     content: '';
     position: absolute;
-    top: 30px; /* Căn giữa vòng tròn */
+    top: 30px;
     left: -50%;
     width: 100%;
     height: 2px;
-    background-color: #444; /* Màu đường kẻ (chưa active) */
+    background-color: #f9d4d4; /* Màu đường kẻ (hồng rất nhạt) */
     z-index: 1;
 }
 
-/* Bỏ đường kẻ của bước đầu tiên */
 .progress-step:first-child::before {
     display: none;
 }
@@ -88,6 +90,1303 @@ body {
 }
 
     .progress-step.active .progress-step-icon {
-        background-color: #e6007e; /* Màu hồng (active) như hình */
-        box-shadow: 0 0 15px rgba(230, 0, 126, 0.7);
+        background-color: #ffffff; /* Nền trắng */
+        color: #E6007E; /* Icon màu hồng đậm */
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
     }
+
+/* === CSS TÙY CHỈNH MỚI NHẤT CHO NAVBAR VÀ TRANG CHỦ === */
+
+/* Reset lề của Main và Container */
+main[role="main"] {
+    padding: 0;
+}
+
+
+.navbar {
+    background-color: #f0f0f0 !important; /* Màu nền */
+    border-bottom: 1px solid #f9a0a0 !important;
+    padding-top: 20px; 
+    padding-bottom: 20px;
+    position: relative;
+    z-index: 20;
+}
+
+    .navbar .nav-link,
+    .navbar .btn-link {
+        color: #555 !important;
+        font-weight: 500;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+        .navbar .nav-link:hover,
+        .navbar .btn-link:hover {
+            color: #E6007E !important;
+        }
+
+
+.main-logo-container {
+    position: absolute;
+    width: 150px;
+    height: auto;
+    top: 5px; 
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 30;
+}
+
+    .main-logo-container img {
+        width: 100%;
+        display: block;
+    }
+
+
+.hero-section-light {
+    background-color: #ffb7b7; 
+    padding: 6rem 0rem 4rem 0rem;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-landscape-container {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25); /* Hiệu ứng nổi bật */
+    z-index: 10;
+}
+
+.hero-landscape-image {
+    width: 100%;
+    display: block;
+}
+
+
+.cta-button-light {
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+    padding: 12px 25px;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    color: #212529;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    z-index: 15;
+}
+
+    .cta-button-light:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+
+.policy-section-light {
+    background-color: #ffb7b7; /* Màu hồng của bạn */
+    padding: 4rem 0rem;
+}
+
+    .policy-section-light .container {
+        max-width: 1200px;
+        padding: 0 15px; /* Giữ padding ngang nhỏ để nội dung không dính mép */
+    }
+
+.policy-card-light {
+    background-color: #ffb7b7; /* Màu hồng của bạn */
+    border-radius: 16px;
+    padding: 2rem;
+    height: 100%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Hiệu ứng nổi bật */
+}
+
+    .policy-card-light h4 {
+        color: #333;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+    }
+
+    .policy-card-light ul {
+        padding-left: 20px;
+        color: #555;
+    }
+
+        .policy-card-light ul li {
+            margin-bottom: 0.5rem;
+        }
+        .stage1-container, .stage1-container h1, .stage1-container h3, .stage1-container p, .stage1-container li {
+        font-family: 'Nunito', sans-serif;
+    }
+
+    /* Tiêu đề chính */
+    .stage1-title {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 800; /* Rất đậm */
+        font-size: 2.5rem;
+        color: #ffffff; /* Màu trắng */
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Đổ bóng nhẹ cho chữ dễ đọc */
+    }
+
+    /* Thẻ sản phẩm */
+    .product-card-stage1 {
+        background-color: #fff;
+        border: 2px solid transparent;
+        border-radius: 20px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        padding: 2rem;
+        text-align: center;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+        cursor: pointer; /* Con trỏ tay khi di chuột vào */
+    }
+
+    /* Hiệu ứng khi hover */
+    .product-card-stage1:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(230, 0, 126, 0.2);
+        border-color: #E6007E; /* Viền hồng đậm */
+        background-color: #FFF0F5; /* Nền hồng nhạt */
+    }
+
+    /* Tên sản phẩm trong thẻ */
+    .product-card-stage1 h3 {
+        color: #E6007E;
+        font-weight: 800;
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+    }
+
+    /* Giá tiền */
+    .product-card-stage1 .price {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #555;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Mô tả */
+    .product-card-stage1 .description {
+        color: #6c757d;
+        font-size: 0.95rem;
+        list-style-type: disc; /* Dấu chấm tròn */
+        list-style-position: inside; /* Đưa dấu vào trong */
+        padding-left: 0;
+        text-align: left;
+        margin-top: auto; /* Đẩy mô tả xuống dưới cùng nếu nội dung ngắn */
+    }
+    
+    .product-card-stage1 .description li {
+        margin-bottom: 0.5rem;
+    }
+
+    /* Ẩn nút submit mặc định của button */
+    .btn-card-wrapper {
+        border: none;
+        background: none;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    /* Ghi chú cuối trang */
+    .footer-note {
+        font-family: 'Nunito', sans-serif;
+        text-align: center;
+        margin-top: 3rem;
+        color: #fff; /* Màu trắng cho nổi bật trên nền hồng */
+        font-weight: 700;
+        font-size: 0.9rem;
+        opacity: 0.9;
+    }
+/* === CSS NÂNG CẤP GIAI ĐOẠN 2 (CHỌN BACKGROUND) === */
+/* === CSS NÂNG CẤP GIAI ĐOẠN 2 (LAYOUT 2 CỘT & SCROLL) === */
+
+/* Khung chứa Background (Cột Trái) - Có thanh cuộn */
+.stage2-scroll-area {
+    max-height: 500px; /* Chiều cao cố định */
+    overflow-y: auto; /* Hiện thanh cuộn dọc */
+    padding-right: 10px; /* Chừa chỗ cho thanh cuộn */
+    /* Tùy chỉnh thanh cuộn cho đẹp (trên Chrome/Edge) */
+    scrollbar-width: thin;
+    scrollbar-color: #E6007E #f0f0f0;
+}
+
+/* Khung chứa Ghi chú (Cột Phải) - Luôn cố định */
+.stage2-note-area {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 2rem;
+    height: 100%; /* Cao bằng cột trái */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+    .stage2-note-area h3 {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: #E6007E;
+        margin-bottom: 1rem;
+    }
+/* Áp dụng font chữ chung */
+.stage2-container, .stage2-container h1, .stage2-container h4, .stage2-container h5, .stage2-container p, .stage2-container label {
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Tiêu đề "GIAI ĐOẠN 2..." */
+.stage2-title {
+    font-weight: 800;
+    font-size: 2.5rem;
+    color: #ffffff; /* Màu trắng */
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Chú thích "Lưu Ý:..." */
+.stage2-note {
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #fff;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+/* Thẻ (card) lớn màu trắng */
+.stage2-main-card {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    padding: 2rem;
+}
+
+/* Tiêu đề "Ghi chú:" */
+.stage2-note-title {
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: #E6007E; /* Màu hồng đậm */
+    text-transform: uppercase;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Ô nhập Ghi chú */
+.stage2-textarea {
+    background-color: #fff;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    padding: 1.5rem;
+    width: 100%;
+    min-height: 150px;
+    font-family: 'Nunito', sans-serif;
+}
+
+    .stage2-textarea:focus {
+        border-color: #E6007E;
+        box-shadow: 0 12px 30px rgba(230, 0, 126, 0.2);
+        outline: none;
+    }
+
+/* === CSS CHO LƯỚI CHỌN BACKGROUND === */
+
+/* Ẩn radio button gốc */
+.visually-hidden-radio {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Thẻ (card) của từng món Background */
+.stage2-item-card {
+    display: block;
+    background-color: #f8f9fa; /* Màu nền xám nhạt */
+    border: 2px solid #f8f9fa;
+    border-radius: 16px;
+    padding: 1rem;
+    text-align: center;
+    height: 100%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+    .stage2-item-card:hover {
+        border-color: #ffb7b7; /* Màu hồng nhạt (màu nền) */
+    }
+
+    /* Ảnh của Background */
+    .stage2-item-card img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+    }
+
+    .stage2-item-card h5 {
+        font-weight: 700;
+        color: #333;
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .stage2-item-card p {
+        font-size: 0.8rem;
+        color: #6c757d;
+        margin-bottom: 0.25rem;
+    }
+
+    .stage2-item-card .price {
+        font-weight: 700;
+        color: #E6007E;
+    }
+
+/* Hiệu ứng khi được chọn */
+input[type="radio"]:checked + .stage2-item-card {
+    border-color: #E6007E;
+    background-color: #fff;
+    box-shadow: 0 6px 15px rgba(230, 0, 126, 0.2);
+    transform: translateY(-2px);
+}
+
+/* === CSS NÂNG CẤP GIAI ĐOẠN 3 (CHỌN LEGO) === */
+
+/* Áp dụng font chữ chung */
+.stage3-container, .stage3-container h1, .stage3-container h3, .stage3-container p, .stage3-container label, .stage3-tabs .nav-link {
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Tiêu đề "GIAI ĐOẠN 3..." */
+.stage3-title {
+    font-weight: 800;
+    font-size: 2.5rem;
+    color: #ffffff; /* Màu trắng */
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Thẻ (card) lớn màu trắng */
+.stage3-main-card {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    padding: 2rem;
+}
+
+    .stage3-main-card h3 {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 800;
+        font-size: 1.8rem;
+        color: #E6007E; /* Màu hồng đậm */
+        text-transform: uppercase;
+    }
+
+/* Thanh Tab (Mặt, Tóc, Áo...) */
+.stage3-tabs {
+    border-bottom: 2px solid #f0f0f0;
+    margin-bottom: 1.5rem;
+}
+
+    .stage3-tabs .nav-link {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 700;
+        color: #888; /* Màu chữ xám */
+        border: none;
+        border-bottom: 3px solid transparent;
+        padding-left: 0;
+        padding-right: 1.5rem;
+        font-size: 1.1rem;
+    }
+
+        /* Tab được chọn (active) */
+        .stage3-tabs .nav-link.active {
+            color: #E6007E; /* Màu hồng đậm */
+            border-bottom-color: #E6007E;
+            background-color: transparent;
+        }
+
+/* Khu vực Lưới ảnh (Grid) */
+.stage3-grid-pane {
+    background-color: #FFF0F5; /* Nền hồng siêu nhạt */
+    border-radius: 12px;
+    padding: 1.5rem;
+    max-height: 450px;
+    overflow-y: auto;
+}
+
+/* Lưới (Giữ nguyên từ code cũ) */
+.item-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.grid-item {
+    width: 80px;
+    height: 100px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s;
+    padding: 5px;
+    box-sizing: border-box;
+    background-color: #fff; /* Nền trắng cho từng món */
+}
+
+    .grid-item img {
+        width: 100%;
+        height: 60px;
+        object-fit: contain;
+    }
+
+    .grid-item small {
+        font-size: 0.75rem;
+        color: #dc3545;
+    }
+
+    .grid-item:hover {
+        border-color: #0d6efd;
+    }
+
+    .grid-item.selected {
+        border-color: #E6007E; /* Sửa thành màu hồng */
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(230, 0, 126, 0.3);
+    }
+
+/* Khu vực Xem trước (Manocanh) */
+.stage3-preview-col {
+    padding-left: 2rem;
+}
+
+.lego-preview-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px; /* Giới hạn */
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    background-color: #f8f8f8;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.lego-preview-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Nút điều hướng (chung cho Giai đoạn 2 & 3) */
+.btn-nav-secondary {
+    background-color: #fff;
+    border: 2px solid #E6007E;
+    color: #E6007E;
+    font-weight: 700;
+    border-radius: 30px;
+    padding: 10px 25px;
+    transition: all 0.3s ease;
+}
+
+    .btn-nav-secondary:hover {
+        background-color: #E6007E;
+        color: #fff;
+    }
+
+.btn-nav-primary {
+    background-color: #E6007E;
+    border: 2px solid #E6007E;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 30px;
+    padding: 10px 25px;
+    transition: all 0.3s ease;
+}
+
+    .btn-nav-primary:hover {
+        background-color: #c20067;
+        border-color: #c20067;
+    }
+/* === CSS NÂNG CẤP GIAI ĐOẠN 3 (THEO THIẾT KẾ MỚI) === */
+
+/* Áp dụng font chữ chung (lấy từ GĐ 1 & 2) */
+.stage3-container, .stage3-container h1, .stage3-container h3, .stage3-container p, .stage3-container label, .stage3-tabs .nav-link {
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Tiêu đề "GIAI ĐOẠN 3..." (lấy từ GĐ 1 & 2) */
+.stage3-title {
+    font-weight: 800;
+    font-size: 2.5rem;
+    color: #ffffff; /* Màu trắng */
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Thẻ (card) lớn màu trắng (theo thiết kế) */
+.stage3-main-card {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    padding: 2rem;
+}
+
+    .stage3-main-card h3 {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 800;
+        font-size: 1.8rem;
+        color: #E6007E; /* Màu hồng đậm */
+        text-transform: uppercase;
+    }
+
+/* Thanh Tab (Mặt, Tóc, Áo...) (theo thiết kế) */
+.stage3-tabs {
+    border-bottom: 2px solid #f0f0f0;
+    margin-bottom: 1.5rem;
+}
+
+    .stage3-tabs .nav-link {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 700;
+        color: #888; /* Màu chữ xám */
+        border: none;
+        border-bottom: 3px solid transparent;
+        padding-left: 0;
+        padding-right: 1.5rem;
+        font-size: 1.1rem;
+    }
+
+        /* Tab được chọn (active) (theo thiết kế) */
+        .stage3-tabs .nav-link.active {
+            color: #E6007E; /* Màu hồng đậm */
+            border-bottom-color: #E6007E;
+            background-color: transparent;
+        }
+
+/* Khu vực Lưới ảnh (Grid) (theo thiết kế) */
+.stage3-grid-pane {
+    background-color: #FFF0F5; /* Nền hồng siêu nhạt */
+    border-radius: 12px;
+    padding: 1.5rem;
+    max-height: 450px;
+    overflow-y: auto;
+}
+
+/* Ghi đè file CSS cũ (custom-tab-pane) bằng style mới */
+.custom-tab-pane {
+    max-height: 450px !important;
+    overflow-y: auto !important;
+    padding: 1.5rem !important;
+    border: none !important;
+    background-color: #FFF0F5 !important; /* Nền hồng siêu nhạt */
+    border-radius: 12px !important;
+}
+
+/* Khu vực Xem trước (Manocanh) */
+.stage3-preview-col {
+    padding-left: 2rem;
+}
+
+/* Ghi đè file CSS cũ (lego-preview-container) */
+.lego-preview-container {
+    max-width: 500px !important; /* Giới hạn */
+    margin: 0 auto !important;
+    background-color: #f8f8f8 !important;
+    overflow: hidden !important;
+    border-radius: 12px !important;
+    border: none !important; /* Bỏ viền dashed */
+}
+
+/* Ghi đè file CSS cũ (grid-item.selected) */
+.grid-item.selected {
+    border-color: #E6007E !important; /* Sửa thành màu hồng */
+    background-color: #fff !important;
+    box-shadow: 0 0 10px rgba(230, 0, 126, 0.3) !important;
+}
+
+/* Ghi đè file CSS cũ (các nút điều hướng) */
+.btn-nav-secondary {
+    background-color: #fff;
+    border: 2px solid #E6007E;
+    color: #E6007E;
+    font-weight: 700;
+    border-radius: 30px;
+    padding: 10px 25px;
+    transition: all 0.3s ease;
+}
+
+    .btn-nav-secondary:hover {
+        background-color: #E6007E;
+        color: #fff;
+    }
+
+.btn-nav-primary {
+    background-color: #E6007E;
+    border: 2px solid #E6007E;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 30px;
+    padding: 10px 25px;
+    transition: all 0.3s ease;
+}
+
+    .btn-nav-primary:hover {
+        background-color: #c20067;
+        border-color: #c20067;
+    }
+/* === CSS NÂNG CẤP GIAI ĐOẠN 4 (THÔNG TIN ĐẶT HÀNG) === */
+
+/* Áp dụng font chữ chung */
+.stage4-container, .stage4-container h1, .stage4-container label {
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Tiêu đề "GIAI ĐOẠN 4..." */
+.stage4-title {
+    font-weight: 800;
+    font-size: 2.5rem;
+    color: #ffffff; /* Màu trắng */
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+/* Chú thích "Lưu Ý:..." */
+.stage4-subtitle {
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #fff;
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto; /* Thêm khoảng cách ở dưới */
+}
+
+/* Form chung */
+.stage4-form-container {
+    max-width: 600px; /* Giới hạn chiều rộng form */
+    margin: 0 auto;
+}
+
+/* Nhãn (Label) của form */
+.stage4-form-label {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+/* Ô input (quan trọng nhất) */
+.stage4-input {
+    width: 100%;
+    border: none;
+    background-color: #fff;
+    border-radius: 50px; /* Bo tròn hết cỡ */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    padding: 1rem 1.5rem; /* To và rõ */
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+    .stage4-input:focus {
+        outline: none;
+        box-shadow: 0 12px 30px rgba(230, 0, 126, 0.2); /* Đổ bóng hồng khi focus */
+    }
+
+/* CSS cho validation (lỗi đỏ) */
+.stage4-container .field-validation-error {
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    padding-left: 1rem;
+}
+/* === CSS NÂNG CẤP GIAI ĐOẠN 5 (XÁC NHẬN) === */
+
+/* Áp dụng font chữ chung */
+.stage5-container, .stage5-container h1, .stage5-container h3, .stage5-container h4, .stage5-container p, .stage5-container dt, .stage5-container dd {
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Tiêu đề "GIAI ĐOẠN 5..." */
+.stage5-title {
+    font-weight: 800;
+    font-size: 2.5rem;
+    color: #ffffff; /* Màu trắng */
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+/* Chú thích "Lưu Ý:..." */
+.stage5-subtitle {
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #fff;
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto;
+}
+
+/* Thẻ (card) tóm tắt lớn màu trắng */
+.stage5-summary-card {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    padding: 2.5rem;
+}
+
+/* Các khu vực (section) bên trong thẻ */
+.stage5-summary-section {
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 1.5rem;
+}
+
+    .stage5-summary-section:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    /* Tiêu đề phụ (Thông tin giao hàng, Chi tiết...) */
+    .stage5-summary-section h4 {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 800;
+        font-size: 1.5rem;
+        color: #E6007E; /* Màu hồng đậm */
+        margin-bottom: 1.5rem;
+    }
+
+/* Nút "Thay đổi" (nhỏ) */
+.btn-change {
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    margin-left: 15px;
+}
+
+/* Khối Tổng tiền */
+.stage5-total-block {
+    background-color: #FFF0F5; /* Nền hồng siêu nhạt */
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+    .stage5-total-block h3 {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: #E6007E;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+    }
+
+    .stage5-total-block h1 {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 800;
+        font-size: 2.5rem;
+        color: #E6007E;
+    }
+/* === MÀU SẮC TRẠNG THÁI ĐƠN HÀNG === */
+.status-badge {
+    padding: 0.5em 0.8em;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: white;
+    display: inline-block;
+    min-width: 100px;
+    text-align: center;
+}
+
+.status-moi {
+    background-color: #fd7e14;
+}
+/* Cam (Mới/Đang chờ) */
+.status-danglam {
+    background-color: #0d6efd;
+}
+/* Xanh dương (Đang làm) */
+.status-hoanthanh {
+    background-color: #198754;
+}
+/* Xanh lá (Đã xong) */
+.status-dahuy {
+    background-color: #dc3545;
+}
+/* Đỏ (Đã hủy) */
+.flipped {
+    transform: scaleX(-1);
+}
+/* === CSS PHẦN CÂU CHUYỆN (OUR STORY) === */
+.story-section {
+    background-color: #fffdf5; /* Vàng kem siêu nhạt pha trắng */
+    padding: 5rem 0;
+}
+
+.story-image-container {
+    background-color: #f8f9fa;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    height: 100%;
+}
+
+.story-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.story-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.story-label {
+    font-family: 'Nunito', sans-serif;
+    color: #E6007E; /* Màu hồng đậm */
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.story-title {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.story-text {
+    font-family: 'Nunito', sans-serif;
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.story-link {
+    font-family: 'Nunito', sans-serif;
+    color: #333;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid #333;
+    padding-bottom: 2px;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+    .story-link:hover {
+        color: #E6007E;
+        border-bottom-color: #E6007E;
+    }
+
+/* === CSS PHẦN FEEDBACK (KHÁCH HÀNG) === */
+.feedback-section {
+    background-color: #fff; /* Nền trắng */
+    padding: 5rem 0 8rem 0;
+    text-align: center;
+}
+
+.feedback-title {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.feedback-subtitle {
+    font-family: 'Nunito', sans-serif;
+    color: #888;
+    margin-bottom: 3rem;
+}
+
+.feedback-card {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+    .feedback-card:hover {
+        transform: translateY(-10px);
+    }
+
+.feedback-header {
+    background-color: #fff;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+    .feedback-header h3 {
+        font-family: 'Garamond', serif; /* Font kiểu cổ điển/sang trọng cho chữ Feedback */
+        font-style: italic;
+        font-size: 2rem;
+        color: #d4a373; /* Màu vàng nâu/sang trọng */
+        margin: 0;
+    }
+
+.feedback-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.policy-section-light {
+    background-color: #fffdf5; /* Đồng bộ màu nền */
+    padding: 4rem 0 6rem 0; /* Tăng padding dưới cùng một chút */
+}
+
+/* Sửa lại thẻ (Card) Chính sách để nổi bật trên nền mới */
+.policy-card-light {
+    background-color: #fff; /* Thẻ màu trắng */
+    border: 1px solid #f0f0f0; /* Viền nhẹ */
+    border-radius: 16px;
+    padding: 2rem;
+    height: 100%;
+    box-shadow: 0 8px 20px rgba(230, 0, 126, 0.05); /* Đổ bóng hồng nhẹ */
+    transition: transform 0.3s ease;
+}
+
+    .policy-card-light:hover {
+        transform: translateY(-5px);
+    }
+/* === CSS TRANG ĐĂNG NHẬP MỚI === */
+
+/* Container chính bo tròn */
+.login-container {
+    background-color: #f9a9ce; /* Màu hồng nền (theo hình) */
+    border-radius: 30px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+    max-width: 900px;
+    margin: 3rem auto;
+    min-height: 500px;
+}
+
+/* Cột Trái (Hồng - Logo) */
+.login-left-col {
+    background-color: #f9a9ce; /* Màu hồng */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+.login-logo {
+    max-width: 80%;
+    margin-bottom: 1rem;
+}
+
+.welcome-text {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    margin-top: 1rem;
+}
+
+/* Cột Phải (Trắng - Form) */
+.login-right-col {
+    background-color: #fff;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    /* Bo góc bên trái để tạo hiệu ứng lượn sóng nếu muốn (nhưng ở đây dùng thẳng cho đơn giản) */
+}
+
+.login-title {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    color: #222;
+    margin-bottom: 1rem;
+}
+
+.login-subtitle {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+/* Input Fields */
+.login-input-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.login-input {
+    width: 100%;
+    padding: 12px 20px 12px 45px; /* Padding trái lớn để chừa chỗ cho icon */
+    border: none;
+    background-color: #fef2f2; /* Màu nền input rất nhạt */
+    border-radius: 50px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+    .login-input:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #f9a9ce; /* Viền hồng khi focus */
+    }
+
+.input-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333;
+}
+
+/* Nút Login */
+.btn-login-pink {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 50px;
+    background-color: #ff8fa3; /* Màu hồng đậm nút */
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+    .btn-login-pink:hover {
+        background-color: #e67a8f;
+        transform: translateY(-2px);
+    }
+
+/* Nút Sign up (nhạt) */
+.btn-signup-light {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 50px;
+    background-color: #fef2f2;
+    color: #555;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+    .btn-signup-light:hover {
+        background-color: #fdecec;
+    }
+
+.divider-text {
+    text-align: center;
+    margin: 1rem 0;
+    color: #aaa;
+    font-size: 0.85rem;
+    position: relative;
+}
+
+    .divider-text::before, .divider-text::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 40%;
+        height: 1px;
+        background-color: #eee;
+    }
+
+    .divider-text::before {
+        left: 0;
+    }
+
+    .divider-text::after {
+        right: 0;
+    }/* === CSS TRANG ĐĂNG NHẬP MỚI === */
+
+/* Container chính bo tròn */
+.login-container {
+    background-color: #f9a9ce; /* Màu hồng nền (theo hình) */
+    border-radius: 30px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+    max-width: 900px;
+    margin: 3rem auto;
+    min-height: 500px;
+}
+
+/* Cột Trái (Hồng - Logo) */
+.login-left-col {
+    background-color: #f9a9ce; /* Màu hồng */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+.login-logo {
+    max-width: 80%;
+    margin-bottom: 1rem;
+}
+
+.welcome-text {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    margin-top: 1rem;
+}
+
+/* Cột Phải (Trắng - Form) */
+.login-right-col {
+    background-color: #fff;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    /* Bo góc bên trái để tạo hiệu ứng lượn sóng nếu muốn (nhưng ở đây dùng thẳng cho đơn giản) */
+}
+
+.login-title {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    color: #222;
+    margin-bottom: 1rem;
+}
+
+.login-subtitle {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+/* Input Fields */
+.login-input-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.login-input {
+    width: 100%;
+    padding: 12px 20px 12px 45px; /* Padding trái lớn để chừa chỗ cho icon */
+    border: none;
+    background-color: #fef2f2; /* Màu nền input rất nhạt */
+    border-radius: 50px;
+    font-size: 0.95rem;
+    color: #555;
+}
+.login-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #f9a9ce; /* Viền hồng khi focus */
+}
+
+.input-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333;
+}
+
+/* Nút Login */
+.btn-login-pink {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 50px;
+    background-color: #ff8fa3; /* Màu hồng đậm nút */
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+.btn-login-pink:hover {
+    background-color: #e67a8f;
+    transform: translateY(-2px);
+}
+
+/* Nút Sign up (nhạt) */
+.btn-signup-light {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 50px;
+    background-color: #fef2f2;
+    color: #555;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.btn-signup-light:hover {
+    background-color: #fdecec;
+}
+
+.divider-text {
+    text-align: center;
+    margin: 1rem 0;
+    color: #aaa;
+    font-size: 0.85rem;
+    position: relative;
+}
+.divider-text::before, .divider-text::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: #eee;
+}
+.divider-text::before { left: 0; }
+.divider-text::after { right: 0; }

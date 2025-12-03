@@ -50,6 +50,9 @@ namespace LitiBrickHouse.Data.Migrations
                     b.Property<int?>("Quantity")
                         .HasColumnType("int");
 
+                    b.Property<string>("Size")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ThumbnailUrl")
                         .HasColumnType("nvarchar(max)");
 
@@ -94,7 +97,6 @@ namespace LitiBrickHouse.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Note")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("OrderDate")
@@ -106,6 +108,9 @@ namespace LitiBrickHouse.Data.Migrations
 
                     b.Property<string>("SocialMediaName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("TotalPrice")
                         .HasColumnType("decimal(18, 2)");

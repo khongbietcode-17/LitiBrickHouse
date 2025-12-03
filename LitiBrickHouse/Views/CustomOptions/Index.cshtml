@@ -1,155 +1,333 @@
 ﻿@model IEnumerable<LitiBrickHouse.Models.CustomOption>
-@using Microsoft.AspNetCore.Mvc.Rendering
 
 @{
-    ViewData["Title"] = "Quản lý Phụ kiện";
-    // Lấy danh sách danh mục (để tạo menu bên trái)
-    var categories = ViewBag.CategoryFilter as SelectList;
-
-    // Lấy ID của danh mục đang được chọn (để biết link nào "active")
-    var currentCategoryId = categories?.SelectedValue?.ToString();
-
-    // Lấy Tên của danh mục đang được chọn (để làm Tiêu đề)
-    var currentCategoryName = "Tất cả Phụ kiện"; // Tiêu đề mặc định
-    if (currentCategoryId != null)
-    {
-        currentCategoryName = categories.FirstOrDefault(c => c.Value == currentCategoryId)?.Text;
-    }
+    ViewData["Title"] = "Kho Phụ Kiện";
+    // Lấy dữ liệu từ Controller
+    var categories = ViewBag.Categories as IEnumerable<LitiBrickHouse.Models.OptionCategory>;
+    var currentFilter = ViewBag.CurrentFilter as string;
+    var activeFilter = ViewBag.ActiveFilter as string; // Để biết đang chọn menu nào (OutOfStock, LowStock)
+    var currentCatId = ViewBag.CurrentCategoryId as int?; // Để biết đang chọn danh mục nào
 }
 
 <style>
-    /* Thanh menu Danh mục (bên trái) */
-    .admin-sidebar {
-        background-color: #f8f9fa; /* Màu nền xám nhẹ */
-        border-radius: 8px;
-        padding: 15px;
+    /* --- CẤU TRÚC LAYOUT (Giống trang Đơn hàng) --- */
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Nunito', sans-serif;
+        overflow-x: hidden;
     }
 
-        .admin-sidebar .nav-link {
-            color: #333;
-            font-weight: 500;
-            margin-bottom: 5px;
+    .admin-wrapper {
+        display: flex;
+        min-height: 100vh;
+    }
+
+    /* --- SIDEBAR (MENU TRÁI) --- */
+    .sidebar {
+        width: 260px;
+        background: #fff;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+        padding: 20px;
+        position: fixed;
+        height: 100%;
+        z-index: 100;
+        overflow-y: auto;
+    }
+
+    .sidebar-brand {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: #E6007E;
+        text-align: center;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .nav-header {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #999;
+        text-transform: uppercase;
+        margin-top: 25px;
+        margin-bottom: 10px;
+        padding-left: 10px;
+    }
+
+    .nav-link {
+        color: #555;
+        font-weight: 600;
+        padding: 10px 15px;
+        border-radius: 8px;
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: all 0.2s;
+        text-decoration: none;
+    }
+
+        .nav-link:hover {
+            background-color: #ffeef7;
+            color: #E6007E;
+            transform: translateX(5px);
         }
 
-            .admin-sidebar .nav-link:hover {
-                background-color: #e9ecef;
-            }
-            /* Màu xanh "nhẹ nhàng" cho link được chọn (active) */
-            .admin-sidebar .nav-link.active {
-                background-color: #cce5ff; /* Màu xanh nhạt */
-                color: #004085; /* Màu xanh đậm */
-            }
+        /* Màu active cho menu đang chọn */
+        .nav-link.active {
+            background-color: #E6007E;
+            color: white !important;
+            box-shadow: 0 4px 6px rgba(230, 0, 126, 0.3);
+        }
 
-    /* Lưới Phụ kiện (bên phải) */
-    .product-grid-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px; /* Khoảng cách giữa các món */
+    /* --- MAIN CONTENT (NỘI DUNG PHẢI) --- */
+    .main-content {
+        margin-left: 260px;
+        padding: 30px;
+        width: calc(100% - 260px);
     }
 
-    /* Thẻ (Card) của từng Phụ kiện */
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: #333;
+    }
+
+    /* --- GRID SẢN PHẨM (CARD) --- */
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Tự động chia cột */
+        gap: 20px;
+    }
+
     .product-card {
-        width: 120px; /* Kích thước thẻ */
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        transition: all 0.2s ease;
-        background-color: #fff;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        transition: 0.3s;
+        border: 1px solid #eee;
+        position: relative;
+        display: flex;
+        flex-direction: column;
     }
 
         .product-card:hover {
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transform: translateY(-2px);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(230, 0, 126, 0.15);
+            border-color: #E6007E;
         }
 
-    /* Ảnh thu nhỏ (Thumbnail) */
-    .product-card-img {
-        width: 100%;
-        height: 100px; /* Chiều cao ảnh */
-        object-fit: contain; /* Hiển thị đẹp, không bị méo */
-        padding: 10px;
-        border-bottom: 1px solid #eee;
+    .card-img-wrap {
+        height: 160px;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        border-bottom: 1px solid #f0f0f0;
     }
 
-    /* Tên và Số lượng */
-    .product-card-body {
-        padding: 10px;
+        .card-img-wrap img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+    .card-body {
+        padding: 15px;
         text-align: center;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
     }
 
-    .product-card-name {
-        font-size: 0.9rem;
-        font-weight: 600;
+    .card-title {
+        font-weight: 700;
+        font-size: 0.95rem;
         color: #333;
-        /* Ngăn chữ quá dài */
+        margin-bottom: 5px;
         white-space: nowrap;
         overflow: hidden;
-        text-overflow: ellipsis;
+        text-overflow: ellipsis; /* Cắt chữ nếu dài quá */
     }
 
-    .product-card-quantity {
+    .card-meta {
         font-size: 0.8rem;
-        color: #6c757d; /* Màu xám */
+        color: #888;
+        margin-bottom: 10px;
+    }
+
+    /* Badge số lượng */
+    .badge-stock {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        margin-top: auto; /* Đẩy xuống đáy card */
+    }
+
+    .stock-ok {
+        background-color: #e6fcf5;
+        color: #0ca678;
+        border: 1px solid #0ca678;
+    }
+
+    .stock-low {
+        background-color: #fff9db;
+        color: #f59f00;
+        border: 1px solid #f59f00;
+    }
+
+    .stock-out {
+        background-color: #ffe3e3;
+        color: #fa5252;
+        border: 1px solid #fa5252;
+    }
+
+    /* Nút thêm mới */
+    .btn-add {
+        background: #0d6efd;
+        color: white;
+        padding: 8px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        border: none;
+    }
+
+        .btn-add:hover {
+            background: #0b5ed7;
+            color: white;
+        }
+
+    /* Overlay nút hành động khi hover card */
+    .card-actions {
+        margin-top: 10px;
+        opacity: 0;
+        transition: 0.2s;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .product-card:hover .card-actions {
+        opacity: 1;
     }
 </style>
 
-<div class="row">
+<div class="admin-wrapper">
 
-    <div class="col-md-3">
-        <div class="admin-sidebar">
-            <h5 class="px-3 pt-2">Danh mục</h5>
-            <nav class="nav flex-column nav-pills p-2">
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <i class="fas fa-cubes"></i> KHO HÀNG
+        </div>
 
-                <a class="nav-link @(currentCategoryId == null ? "active" : "")"
-                   asp-action="Index">
-                    -- Xem Tất cả --
-                </a>
+        <nav class="nav flex-column">
+            <a href="@Url.Action("Index", "Admin")" class="nav-link">
+                <span><i class="fas fa-chart-line"></i> Dashboard</span>
+            </a>
 
-                @foreach (var category in categories)
+            <div class="nav-header">Cảnh báo nhập hàng</div>
+
+            <a href="@Url.Action("Index", new { filterType = "OutOfStock" })"
+               class="nav-link @(activeFilter == "OutOfStock" ? "active" : "")">
+                <span><i class="fas fa-exclamation-circle"></i> Hết hàng (Cần nhập)</span>
+            </a>
+
+            <a href="@Url.Action("Index", new { filterType = "LowStock" })"
+               class="nav-link @(activeFilter == "LowStock" ? "active" : "")">
+                <span><i class="fas fa-battery-quarter"></i> Sắp hết (< 5)</span>
+            </a>
+
+            <div class="nav-header">Danh mục sản phẩm</div>
+
+            @if (categories != null)
+            {
+                foreach (var cat in categories)
                 {
-                    <a class="nav-link @(category.Value == currentCategoryId ? "active" : "")"
-                       asp-action="Index" asp-route-categoryId="@category.Value">
-                        @category.Text
+                    <a href="@Url.Action("Index", new { categoryId = cat.Id })"
+                       class="nav-link @(currentCatId == cat.Id ? "active" : "")">
+                        <span><i class="fas fa-tag"></i> @cat.Name</span>
                     </a>
                 }
-            </nav>
-        </div>
+            }
+
+        </nav>
     </div>
 
-    <div class="col-md-9">
+    <div class="main-content">
 
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <h2>@currentCategoryName</h2>
-            <a asp-action="Create" class="btn btn-primary">Thêm Phụ kiện mới</a>
+        <div class="page-header">
+            <div>
+                <h2 class="page-title">@currentFilter</h2>
+                <p class="text-muted mb-0">Quản lý kho và cập nhật số lượng</p>
+            </div>
+            <div>
+                <a asp-action="Create" class="btn-add">
+                    <i class="fas fa-plus"></i> Thêm Phụ kiện
+                </a>
+            </div>
         </div>
 
-        <div class="product-grid-container">
+        @if (Model != null && Model.Any())
+        {
+            <div class="product-grid">
+                @foreach (var item in Model)
+                {
+                    <div class="product-card">
+                        <div class="card-img-wrap">
+                            <img src="@(item.ImageUrl ?? "https://via.placeholder.com/150")" alt="@item.Name" />
+                        </div>
 
-            @if (!Model.Any())
-            {
-                <p class="text-muted">Không tìm thấy phụ kiện nào trong danh mục này.</p>
-            }
+                        <div class="card-body">
+                            <div class="card-meta">@item.OptionCategory?.Name</div>
+                            <h3 class="card-title" title="@item.Name">@item.Name</h3>
 
-            @foreach (var item in Model)
-            {
-                <div class="product-card">
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="text-decoration-none">
-
-                        <img src="@(item.ThumbnailUrl ?? item.ImageUrl ?? "/images/placeholder.png")"
-                             class="product-card-img" alt="@item.Name">
-
-                        <div class="product-card-body">
-                            <div class="product-card-name" title="@item.Name">
-                                @item.Name
+                            <div class="mt-2">
+                                @if (item.Quantity <= 0)
+                                {
+                                    <span class="badge-stock stock-out">Hết hàng</span>
+                                }
+                                else if (item.Quantity < 5)
+                                {
+                                    <span class="badge-stock stock-low">Sắp hết: @item.Quantity</span>
+                                }
+                                else
+                                {
+                                    <span class="badge-stock stock-ok">SL: @item.Quantity</span>
+                                }
                             </div>
-                            <div class="product-card-quantity">
-                                SL: @(item.Quantity?.ToString() ?? "Vô hạn")
+
+                            <div class="card-actions">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary" title="Sửa">
+                                    <i class="fas fa-pen"></i>
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger" title="Xóa">
+                                    <i class="fas fa-trash"></i>
+                                </a>
                             </div>
                         </div>
-                    </a>
-                </div>
-            }
-
-        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="text-center py-5">
+                <i class="fas fa-box-open fa-3x text-muted mb-3"></i>
+                <h4 class="text-muted">Danh mục này hiện đang trống</h4>
+            </div>
+        }
     </div>
 </div>

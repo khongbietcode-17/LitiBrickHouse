@@ -10,6 +10,7 @@ namespace LitiBrickHouse.Models
 
         [Required(ErrorMessage = "Tên là bắt buộc")]
         public string Name { get; set; }
+        public string? Size { get; set; }
 
         // ImageUrl 1024x1024 là bắt buộc
         [Required(ErrorMessage = "ImageUrl là bắt buộc")]

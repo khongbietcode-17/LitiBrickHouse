@@ -23,15 +23,28 @@ namespace LitiBrickHouse.Controllers
         // (Trong file Controllers/OrdersController.cs)
         // THAY THẾ action Index CŨ BẰNG CÁI NÀY:
 
-        public async Task<IActionResult> Index(Enums.OrderStatus status = Enums.OrderStatus.Moi)
+        // GET: Orders
+        public async Task<IActionResult> Index(LitiBrickHouse.Enums.OrderStatus? status) // 1. Thêm dấu ? để cho phép null
         {
-            // Mặc định, chỉ hiển thị đơn "Mới"
-            var query = _context.Orders
-                .Where(o => o.Status == status)
-                .OrderByDescending(o => o.OrderDate); // Sắp xếp đơn mới nhất lên đầu
+            // Bắt đầu với toàn bộ danh sách
+            var query = _context.Orders.AsQueryable();
 
-            // Gửi trạng thái hiện tại ra View
-            ViewBag.CurrentStatus = status;
+            // 2. Logic lọc: Chỉ khi nào có chọn status thì mới lọc
+            if (status.HasValue)
+            {
+                query = query.Where(o => o.Status == status.Value);
+            }
+
+            // 3. Sắp xếp: Đơn mới nhất lên đầu
+            query = query.OrderByDescending(o => o.OrderDate);
+
+            // 4. Đếm số đơn mới (để hiện số đỏ trên menu bên trái)
+            // Dùng CountAsync cho tối ưu
+            ViewBag.CountNew = await _context.Orders.CountAsync(o => o.Status == LitiBrickHouse.Enums.OrderStatus.Moi);
+
+            // 5. Gửi trạng thái hiện tại ra View (để menu biết cái nào đang Active)
+            // Chuyển về string để View dễ so sánh
+            ViewBag.CurrentStatus = status.HasValue ? status.Value.ToString() : "";
 
             return View(await query.ToListAsync());
         }
@@ -51,6 +64,7 @@ namespace LitiBrickHouse.Controllers
                 // 1. Tải các món "đơn lẻ" (Background, Cầu thủ)
                 .Include(o => o.OrderItems)
                     .ThenInclude(oi => oi.CustomOption) // Lấy thông tin (Tên, Giá) của món đó
+                        .ThenInclude(co => co.OptionCategory) // Lấy cả tên Danh mục (Background, Cầu thủ)
 
                 // 2. Tải các bộ "Lego tùy chỉnh"
                 .Include(o => o.CustomLegos)
@@ -109,7 +123,24 @@ namespace LitiBrickHouse.Controllers
             }
             return View(order);
         }
+        // POST: Orders/UpdateStatus
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UpdateStatus(int id, LitiBrickHouse.Enums.OrderStatus newStatus)
+        {
+            var order = await _context.Orders.FindAsync(id);
+            if (order == null)
+            {
+                return NotFound();
+            }
 
+            order.Status = newStatus;
+            _context.Update(order);
+            await _context.SaveChangesAsync();
+
+            // Quay lại trang danh sách, giữ nguyên bộ lọc hiện tại
+            return RedirectToAction(nameof(Index), new { status = newStatus });
+        }
         // POST: Orders/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.

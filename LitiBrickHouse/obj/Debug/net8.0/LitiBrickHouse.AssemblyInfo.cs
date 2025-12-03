@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LitiBrickHouse")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d8c15c2652ad07e1916e91f3057430f742441ba9")]
 [assembly: System.Reflection.AssemblyProductAttribute("LitiBrickHouse")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LitiBrickHouse")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -2,110 +2,74 @@
     ViewData["Title"] = "Trang Chủ";
 }
 
-<style>
-    /* Chúng ta cần "reset" lại lề của container
-      để các dải màu (hồng, xanh) kéo hết màn hình
-    */
-    .container {
-        max-width: 100%;
-        padding: 0;
-        margin: 0;
-    }
+<div class="container-full-width">
 
-    /* Ghi đè lề mặc định của Main */
-    main[role="main"] {
-        padding: 0;
-    }
+    <section class="hero-section-light">
+        <div class="hero-landscape-container">
+            <img src="/images/homepage/banner.png"
+                 alt="Liti Brick House Landscape"
+                 class="hero-landscape-image" />
+            <a asp-controller="Order" asp-action="StartNewOrder" class="cta-button-light">
+                Bắt đầu đặt hàng !
+            </a>
+        </div>
+    </section>
 
-    /* 1. Thanh Header Logo */
-    .header-brand {
-        background-color: #FFF0F5; /* Màu hồng phấn nhạt (từ ảnh) */
-        padding: 20px 0;
-        text-align: center;
-        border-bottom: 1px solid #eee;
-    }
-    .header-brand img {
-        max-height: 80px; /* Điều chỉnh chiều cao logo */
-    }
+    <section class="story-section">
+        <div class="container" style="max-width: 1200px;">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="story-image-container">
+                        <img src="/images/homepage/story_image.jpg" alt="Câu chuyện Liti Brick" class="story-image" />
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="story-content">
+                        <p class="story-label">VỀ CHÚNG TÔI</p>
+                        <h2 class="story-title">Đây là shop khung ảnh nhân vật đồ chơi custom</h2>
+                        <p class="story-text">
+                            Chúng tôi tin rằng, món quà thú vị và cá nhân hóa này có thể làm nên một món quà bất ngờ để bạn dành tặng cho người thân, bạn bè.
+                            <br><br>
+                            Liti Brick House sẽ giúp bạn tạo nên một khung ảnh độc đáo riêng biệt kỹ niệm từng những mãnh gạch nhỏ.
+                        </p>
+                        <a href="#" class="story-link">Đọc thêm về chúng tôi</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    /* 2. Khu vực Hero (Cảnh quan) */
-    .hero-landscape {
-        /* BẠN PHẢI TẠO 1 ẢNH .png HOẶC .jpg CỦA CẢNH QUAN
-          VÀ LƯU VÀO THƯ MỤC /wwwroot/images/homepage/hero_background.png
-        */
-        background-image: url("/images/homepage/hero_background.png");
-        background-size: cover;
-        background-position: center bottom;
-        height: 60vh; /* Chiều cao bằng 60% màn hình */
-        position: relative; /* Dùng để căn giữa text */
-        padding: 2rem;
-    }
+    <section class="feedback-section">
+        <div class="container" style="max-width: 1200px;">
+            <h2 class="feedback-title">Feedback Khách Hàng</h2>
+            <p class="feedback-subtitle">Feedback của khách nhà shop nè</p>
 
-    /* 3. Khối văn bản trên Hero */
-    .hero-text-content {
-        position: absolute;
-        top: 50%;
-        right: 10%; /* Căn lề phải 10% */
-        transform: translateY(-50%);
-        text-align: right;
-        color: #333;
-    }
-    .hero-text-content h1 {
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-    }
-    .hero-text-content p {
-        font-size: 1.25rem;
-        margin-bottom: 1.5rem;
-    }
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="feedback-card">
+                        <img src="/images/homepage/1.png" alt="Feedback 1" class="feedback-image" />
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feedback-card">
+                        <img src="/images/homepage/2.png" alt="Feedback 2" class="feedback-image" />
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feedback-card">
+                        <img src="/images/homepage/3.png" alt="Feedback 3" class="feedback-image" />
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feedback-card">
+                        <img src="/images/homepage/4.png" alt="Feedback 4" class="feedback-image" />
+                    </div>
+                </div>
+                <a href="#" class="story-link">Xem thêm feedback khách hàng</a>
+            </div>
+        </div>
+    </section>
 
-    /* 4. Nút Đặt hàng (Call to Action) */
-    .cta-button {
-        display: inline-block;
-        margin-top: 20px;
-        padding: 12px 25px;
-        background-color: white;
-        border-radius: 30px; /* Bo tròn */
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        color: #212529;
-        font-weight: bold;
-        font-style: italic; /* Chữ nghiêng */
-        text-decoration: none;
-        transition: all 0.3s ease;
-    }
-    .cta-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    }
+    
 
-    /* 5. Khu vực Chính sách */
-    .policy-section {
-        padding: 3rem 0;
-        text-align: center;
-        background-color: #fff;
-    }
-    .policy-section h2 {
-        font-weight: 700;
-    }
-
-</style>
-
-<header class="header-brand">
-    <img src="/images/homepage/liti_logo.png" alt="Liti Brick Houses Logo">
-</header>
-
-<div class="hero-landscape">
-    <div class="hero-text-content">
-        <h1>Thêm tiêu đề</h1>
-        <p>Thêm nội dung văn bản</p>
-
-        <a asp-controller="Order" asp-action="StartNewOrder" class="cta-button">
-            Đặt hàng tại đây !!
-        </a>
-    </div>
 </div>
-
-<section class="policy-section">
-    <h2>chính sách bảo hành</h2>
-</section>

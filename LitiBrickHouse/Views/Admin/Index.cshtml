@@ -1,0 +1,228 @@
+﻿@{
+    ViewData["Title"] = "Bảng Điều Khiển Admin";
+}
+
+<style>
+    .admin-container {
+        font-family: 'Nunito', sans-serif;
+        padding: 2rem 0;
+    }
+
+    /* Tiêu đề */
+    .dashboard-title {
+        color: #E6007E;
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* Card Quản lý (Menu) */
+    .menu-card {
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 1px solid #eee;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none; /* Bỏ gạch chân link */
+    }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(230, 0, 126, 0.15);
+            border-color: #E6007E;
+        }
+
+        .menu-card i {
+            font-size: 2.5rem;
+            color: #E6007E;
+            margin-bottom: 1rem;
+        }
+
+        .menu-card h4 {
+            color: #333;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+    /* Card Thống kê (Stats) */
+    .stat-card {
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 1.5rem;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        height: 100%;
+        border-left: 5px solid #ccc; /* Viền màu bên trái */
+    }
+
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin-right: 1rem;
+        color: white;
+    }
+
+    .stat-info h5 {
+        color: #6c757d;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 0.2rem;
+        text-transform: uppercase;
+    }
+
+    .stat-info h3 {
+        color: #333;
+        font-weight: 800;
+        margin: 0;
+    }
+
+    /* Màu sắc cho từng loại Stat */
+    .border-orange {
+        border-left-color: #fd7e14;
+    }
+
+    .bg-orange {
+        background-color: #fd7e14;
+    }
+
+    .border-blue {
+        border-left-color: #0d6efd;
+    }
+
+    .bg-blue {
+        background-color: #0d6efd;
+    }
+
+    .border-green {
+        border-left-color: #198754;
+    }
+
+    .bg-green {
+        background-color: #198754;
+    }
+
+    .border-pink {
+        border-left-color: #E6007E;
+    }
+
+    .bg-pink {
+        background-color: #E6007E;
+    }
+</style>
+
+<div class="container admin-container">
+
+    <h1 class="dashboard-title">Bảng Điều Khiển</h1>
+
+    <div class="row g-4 mb-5">
+        <div class="col-md-4">
+            <a asp-controller="Orders" asp-action="Index" class="menu-card">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <h4>Quản lý Đơn hàng</h4>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a asp-controller="CustomOptions" asp-action="Index" class="menu-card">
+                <i class="fas fa-box-open"></i>
+                <h4>Quản lý Phụ kiện</h4>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a asp-controller="OptionCategories" asp-action="Index" class="menu-card">
+                <i class="fas fa-tags"></i>
+                <h4>Quản lý Danh mục</h4>
+            </a>
+        </div>
+    </div>
+
+    <h4 class="mb-3 text-muted fw-bold">Tình Trạng Đơn Hàng</h4>
+    <div class="row g-4 mb-5">
+        <div class="col-md-3">
+            <div class="stat-card border-orange">
+                <div class="stat-icon bg-orange">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="stat-info">
+                    <h5>Đơn Mới</h5>
+                    <h3>@(ViewBag.CountNew ?? 0)</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card border-blue">
+                <div class="stat-icon bg-blue">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div class="stat-info">
+                    <h5>Đang Làm</h5>
+                    <h3>@(ViewBag.CountProcessing ?? 0)</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card border-green">
+                <div class="stat-icon bg-green">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-info">
+                    <h5>Hoàn Thành</h5>
+                    <h3>@(ViewBag.CountCompleted ?? 0)</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card" style="border-left-color: #dc3545;">
+                <div class="stat-icon" style="background-color: #dc3545;">
+                    <i class="fas fa-times-circle"></i>
+                </div>
+                <div class="stat-info">
+                    <h5>Đã Hủy</h5>
+                    <h3>@(ViewBag.CountCancelled ?? 0)</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h4 class="mb-3 text-muted fw-bold">Doanh Thu (Chỉ tính đơn Hoàn Thành)</h4>
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="stat-card border-pink">
+                <div class="stat-icon bg-pink">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <div class="stat-info">
+                    <h5>Tháng Này (@DateTime.Now.ToString("MM/yyyy"))</h5>
+                    <h3 class="text-danger">@(((decimal)(ViewBag.MonthlyRevenue ?? 0m)).ToString("N0")) VNĐ</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="stat-card border-pink">
+                <div class="stat-icon bg-pink">
+                    <i class="fas fa-wallet"></i>
+                </div>
+                <div class="stat-info">
+                    <h5>Tổng Doanh Thu (Toàn thời gian)</h5>
+                    <h3 class="text-danger">@(((decimal)(ViewBag.TotalRevenue ?? 0m)).ToString("N0")) VNĐ</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

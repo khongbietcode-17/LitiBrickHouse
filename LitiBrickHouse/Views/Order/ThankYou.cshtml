@@ -2,17 +2,50 @@
     ViewData["Title"] = "Đặt hàng Thành công";
 }
 
-<div class="container text-center">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <h1 class="display-4 text-success">Cảm ơn bạn!</h1>
-            <p class="lead">Đơn hàng của bạn đã được đặt thành công.</p>
-            <hr />
-            <p>Mã đơn hàng của bạn là: <strong>#@ViewBag.OrderId</strong></p>
-            <p>Chúng tôi sẽ liên hệ với bạn qua số điện thoại đã cung cấp để xác nhận.</p>
-            <a asp-controller="Home" asp-action="Index" class="btn btn-primary mt-3">
-                Quay về Trang chủ
-            </a>
-        </div>
-    </div>
+<style>
+    .thankyou-container {
+        font-family: 'Nunito', sans-serif;
+        text-align: center;
+        padding: 4rem 0;
+    }
+
+    .thankyou-icon {
+        font-size: 5rem;
+        color: #198754;
+        margin-bottom: 1rem;
+    }
+
+    .thankyou-title {
+        font-weight: 800;
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 1rem;
+    }
+
+    .thankyou-order-id {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 2rem;
+    }
+
+        .thankyou-order-id strong {
+            color: #E6007E;
+        }
+</style>
+
+<div class="container thankyou-container">
+    <div class="thankyou-icon"><i class="fas fa-check-circle"></i></div>
+    <h1 class="thankyou-title">Cảm Ơn Bạn!</h1>
+    <p class="lead">Đơn hàng của bạn đã được ghi nhận thành công.</p>
+
+    @if (ViewBag.OrderId != null)
+    {
+        <p class="thankyou-order-id">Mã đơn hàng: <strong>#@ViewBag.OrderId</strong></p>
+    }
+
+    <p class="text-muted">Chúng tôi sẽ liên hệ với bạn sớm nhất để xác nhận đơn hàng.</p>
+
+    <a asp-controller="Home" asp-action="Index" class="btn btn-nav-primary mt-4">
+        Quay về Trang chủ
+    </a>
 </div>

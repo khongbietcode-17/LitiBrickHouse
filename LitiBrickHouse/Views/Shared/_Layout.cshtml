@@ -7,126 +7,181 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/LitiBrickHouse.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="main-logo-container">
+        <img src="/images/homepage/logo.png" alt="Liti Brick Houses Logo">
+    </div>
+
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">LitiBrickHouse</a>
-                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-{
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Admin
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="adminDropdown">
-                            <li>
-                                <a class="dropdown-item" asp-controller="CustomOptions" asp-action="Index">
-                                    Quản lý Phụ kiện
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" asp-controller="OptionCategories" asp-action="Index">
-                                    Quản lý Danh mục
-                                </a>
-                            </li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li>
-                                <a class="dropdown-item" asp-controller="Orders" asp-action="Index">
-                                    Quản lý Đơn hàng
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                }
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+                ...
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Admin
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Admin" asp-action="Index">
+                                            <strong>Bảng điều khiển (Chính)</strong>
+                                        </a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="CustomOptions" asp-action="Index">
+                                            Quản lý Phụ kiện
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="OptionCategories" asp-action="Index">
+                                            Quản lý Danh mục
+                                        </a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Orders" asp-action="Index">
+                                            Quản lý Đơn hàng
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    }
                     <partial name="_LoginPartial" />
                 </div>
+                ...
             </div>
         </nav>
     </header>
-    </header> @{
-    // Lấy tên Controller và Action hiện tại
-    var controller = ViewContext.RouteData.Values["controller"]?.ToString();
-    var action = ViewContext.RouteData.Values["action"]?.ToString();
 
-    // Chỉ hiển thị thanh tiến độ nếu đang ở trong OrderController
-    // và KHÔNG phải là trang Cảm ơn (ThankYou)
-    if (controller == "Order" && action != "ThankYou")
-    {
-        // Xác định xem đang ở Giai đoạn nào
-        string stage1Class = (action == "Stage1_SelectType") ? "active" : "";
-        string stage2Class = (action == "Stage2_SelectBackground") ? "active" : "";
-        string stage3Class = (action == "Stage3_Customize" || action == "Stage3_CustomizeLego" || action == "Stage3_SelectSportPlayer") ? "active" : "";
-        string stage4Class = (action == "Stage4_ShippingInfo") ? "active" : "";
-        string stage5Class = (action == "Stage5_Confirm") ? "active" : "";
+    @{
+      
+        var controller = ViewContext.RouteData.Values["controller"]?.ToString();
+        var action = ViewContext.RouteData.Values["action"]?.ToString();
 
-        <div class="order-progress-bar">
-            <div class="container">
-                <ul class="progress-steps">
-                    <li class="progress-step @stage1Class">
-                        <div class="progress-step-icon">
-                            <i class="fas fa-box"></i>
-                        </div>
-                        Chọn Version
-                    </li>
-                    <li class="progress-step @stage2Class">
-                        <div class="progress-step-icon">
-                            <i class="fas fa-image"></i>
-                        </div>
-                        Chọn Background
-                    </li>
-                    <li class="progress-step @stage3Class">
-                        <div class="progress-step-icon">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        Nhân vật
-                    </li>
-                    <li class="progress-step @stage4Class">
-                        <div class="progress-step-icon">
-                            <i class="fas fa-paw"></i>
-                        </div>
-                        Phụ kiện & Thú cưng
-                    </li>
-                    <li class="progress-step @stage5Class">
-                        <div class="progress-step-icon">
-                            <i class="fas fa-file-alt"></i>
-                        </div>
-                        Thông tin đặt hàng
-                    </li>
-                </ul>
+     
+        if (controller == "Order" && action != "ThankYou")
+        {
+           
+            string stage1Class = (action == "Stage1_SelectType") ? "active" : "";
+            string stage2Class = (action == "Stage2_SelectBackground") ? "active" : "";
+            string stage3Class = (action == "Stage3_Customize" || action == "Stage3_CustomizeLego" || action == "Stage3_SelectSportPlayer") ? "active" : "";
+            string stage4Class = (action == "Stage4_ShippingInfo") ? "active" : "";
+            string stage5Class = (action == "Stage5_Confirm") ? "active" : "";
+
+            <div class="order-progress-bar" style="margin-top: 80px;">
+                <div class="container-fluid">
+                    <ul class="progress-steps">
+
+                        <li class="progress-step @stage1Class">
+                            <div class="progress-step-icon"><i class="fas fa-box"></i></div>
+                            Chọn Loại
+                        </li>
+
+                        <li class="progress-step @stage2Class">
+                            <div class="progress-step-icon"><i class="fas fa-image"></i></div>
+                            Chọn Background
+                        </li>
+
+                        <li class="progress-step @stage3Class">
+                            <div class="progress-step-icon"><i class="fas fa-user"></i></div>
+                            Chọn Lego
+                        </li>
+
+                        <li class="progress-step @stage4Class">
+                            <div class="progress-step-icon"><i class="fas fa-file-alt"></i></div>
+                            Thông tin đặt hàng
+                        </li>
+
+                        <li class="progress-step @stage5Class">
+                            <div class="progress-step-icon"><i class="fas fa-check"></i></div>
+                            Hoàn tất
+                        </li>
+
+                    </ul>
+                </div>
             </div>
+        }
+    }
+
+    @if (controller == "Home")
+    {
+        <main role="main">
+            @RenderBody()
+        </main>
+    }
+    else
+    {
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
         </div>
     }
-        }
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <section class="policy-section-light">
+        <div class="container" style="max-width: 1200px;">
+            <div class="row g-4">
 
+                <div class="col-lg-4">
+                    <div class="policy-card-light">
+                        <h4><i class="fas fa-shield-alt text-warning me-2"></i> BẢO HÀNH</h4>
+                        <ul>
+                            <li>Hỗ trợ sửa chữa trọn đời.</li>
+                            <li>Hỗ trợ tư vấn sửa chữa lỗi nếu lỗi nhỏ</li>
+                            <li>Hỗ trợ 1 đổi 1 nếu lỗi nặng</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="policy-card-light">
+                        <h4><i class="fas fa-truck text-info me-2"></i> GIAO HÀNG</h4>
+                        <ul>
+                            <li>Không cần cọc trước, thu phí 50% nếu hủy đơn khi đơn đã xong demo</li>
+                            <li>Thời gian sản xuất: 1-3 ngày.</li>
+                            <li>Giao hàng 1-2 khu vực miền Nam</li>
+                            <li>Giao hàng 3-5 khu vực miền Bắc</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="policy-card-light">
+                        <h4><i class="fas fa-headset text-danger me-2"></i> HỖ TRỢ</h4>
+                        <ul>
+                            <li>Nhận ảnh demo trước khi bắt đầu làm.</li>
+                            <li>Nhận ảnh thành phẩm trước khi đi đơn</li>
+                            <li>Hotline: 0963.773.711 ( Linh ) </li>
+                            <li>Hỗ trợ tư vấn 24/7.</li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2025 - LitiBrickHouse - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2025 - LitiBrickHouse -
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

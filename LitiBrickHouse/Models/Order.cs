@@ -10,8 +10,8 @@ namespace LitiBrickHouse.Models
         public int Id { get; set; }
 
         // --- Thông tin Khách hàng (Từ Giai đoạn 4) ---
-
-        public string? SocialMediaName { get; set; } // Tên Mạng Xã hội (Facebook, Zalo...)
+        [Required]
+        public string SocialMediaName { get; set; } 
         
         [Required]
         public string CustomerName { get; set; }
@@ -22,7 +22,7 @@ namespace LitiBrickHouse.Models
 
 
         // --- Ghi chú (Từ Giai đoạn 2) ---
-        public string Note { get; set; }
+        public string? Note { get; set; }
 
         // --- Thông tin Đơn hàng (Từ Giai đoạn 5) ---
         [DataType(DataType.DateTime)]

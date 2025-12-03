@@ -1,82 +1,123 @@
 ﻿@model LitiBrickHouse.ViewModels.OrderBuilderViewModel
 @{
     ViewData["Title"] = "Giai đoạn 5: Xác nhận Đơn hàng";
+    // Lấy tên chi tiết
+    var lego1Names = ViewBag.Lego1_Names as List<string?>;
+    var lego2Names = ViewBag.Lego2_Names as List<string?>;
+
+    // Lấy giá chi tiết
+    var lego1Price = (decimal)(ViewBag.Lego1_Price ?? 0m);
+    var lego2Price = (decimal)(ViewBag.Lego2_Price ?? 0m);
 }
 
-<div class="container">
+<div class="container stage5-container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-lg-10 text-center">
 
-            <h1 class="my-4 text-center">Giai đoạn 5: Xác nhận Đơn hàng</h1>
-            <p class="lead text-center">Vui lòng kiểm tra lại toàn bộ thông tin trước khi hoàn tất.</p>
-            <hr />
-
-            <h3>Thông tin Giao hàng</h3>
-            <div class="card mb-3">
-                <div class="card-body">
-                    <p><strong>Họ và Tên:</strong> @Model.CustomerName</p>
-                    <p><strong>Số Điện Thoại:</strong> @Model.PhoneNumber</p>
-                    <p><strong>Địa chỉ:</strong> @Model.Address</p>
-                    <a asp-action="Stage4_ShippingInfo" class="btn btn-sm btn-outline-secondary">Thay đổi</a>
-                </div>
-            </div>
-
-            <h3>Chi tiết Sản phẩm</h3>
-            <div class="card mb-3">
-                <div class="card-body">
-                    <p>
-                        <strong>Loại Sản phẩm:</strong> @Model.SelectedProductType?.Name
-                        (@Model.SelectedProductType?.BasePrice.ToString("N0") VNĐ)
-                        <a asp-action="Stage1_SelectType" class="btn btn-sm btn-outline-secondary float-end">Thay đổi</a>
-                    </p>
-                    <hr>
-                    <p>
-                        <strong>Background:</strong> @Model.SelectedBackground?.Name
-                        (+@Model.SelectedBackground?.AdditionalPrice.ToString("N0") VNĐ)
-                        <a asp-action="Stage2_SelectBackground" class="btn btn-sm btn-outline-secondary float-end">Thay đổi</a>
-                    </p>
-                    <hr>
-                    <p>
-                        <strong>Ghi chú:</strong> @(string.IsNullOrEmpty(Model.CustomerNote) ? "(Không có)" : Model.CustomerNote)
-                    </p>
-                </div>
-            </div>
-
-            <h3>Chi tiết Tùy chỉnh</h3>
-            <div class="card mb-3">
-                <div class="card-body">
-                    @if (Model.ProductTypeId == 3) // Lego Sport
-                    {
-                        <p>
-                            <strong>Cầu thủ:</strong> @Model.SelectedSportPlayer?.Name
-                            (+@Model.SelectedSportPlayer?.AdditionalPrice.ToString("N0") VNĐ)
-                        </p>
-                    }
-                    else // Lego Tùy chỉnh
-                    {
-                        <p><strong>Lego 1:</strong> (Hiển thị Tóc, Mặt... đã chọn)</p>
-                        @if (Model.ProductTypeId == 2)
-                        {
-                            <p><strong>Lego 2:</strong> (Hiển thị Tóc, Mặt... đã chọn)</p>
-                        }
-                    }
-                    <a asp-action="Stage3_Customize" class="btn btn-sm btn-outline-secondary">Thay đổi</a>
-                </div>
-            </div>
-
-            <div class="alert alert-success text-center">
-                <h3>TỔNG TIỀN</h3>
-                <h1 class="display-4">@Model.TotalPrice.ToString("N0") VNĐ</h1>
-            </div>
+            <h1 class="stage5-title">Giai đoạn 5: Xác nhận Đơn hàng</h1>
+            <p class="stage5-subtitle">
+                Vui lòng kiểm tra lại toàn bộ thông tin lần cuối trước khi hoàn tất.
+            </p>
 
             <form asp-action="Stage5_CompleteOrder" method="post">
-                <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-primary btn-lg">
-                        XÁC NHẬN VÀ HOÀN TẤT ĐẶT HÀNG
+
+                <div class="stage5-summary-card text-start">
+
+                    <div class="stage5-summary-section">
+                        <h4>
+                            Thông tin Giao hàng
+                            <a asp-action="Stage4_ShippingInfo" class="btn btn-outline-secondary btn-sm btn-change float-end">Thay đổi</a>
+                        </h4>
+                        <dl class="row">
+                            <dt class="col-sm-4">Họ và Tên:</dt>
+                            <dd class="col-sm-8">@Model.CustomerName</dd>
+
+                            <dt class="col-sm-4">Số Điện thoại:</dt>
+                            <dd class="col-sm-8">@Model.PhoneNumber</dd>
+
+                            <dt class="col-sm-4">Địa chỉ:</dt>
+                            <dd class="col-sm-8">@Model.Address</dd>
+
+                            <dt class="col-sm-4">Mạng Xã hội:</dt>
+                            <dd class="col-sm-8">@(Model.SocialMediaName ?? "(Không có)")</dd>
+                        </dl>
+                    </div>
+
+                    <div class="stage5-summary-section">
+                        <h4>
+                            Chi tiết Đơn hàng
+                            <a asp-action="Stage1_SelectType" class="btn btn-outline-secondary btn-sm btn-change float-end">Thay đổi</a>
+                        </h4>
+                        <dl class="row">
+                            <dt class="col-sm-4">Loại Sản phẩm:</dt>
+                            <dd class="col-sm-8">
+                                @Model.SelectedProductType?.Name
+                                <span class="text-muted" style="font-weight: 500;">(Giá gốc: @Model.SelectedProductType?.BasePrice.ToString("N0") VNĐ)</span>
+                            </dd>
+
+                            <dt class="col-sm-4">Background:</dt>
+                            <dd class="col-sm-8">
+                                @Model.SelectedBackground?.Name
+                                <span class="text-danger" style="font-weight: 500;">(+@Model.SelectedBackground?.AdditionalPrice.ToString("N0") VNĐ)</span>
+                            </dd>
+
+                            <dt class="col-sm-4">Ghi chú:</dt>
+                            <dd class="col-sm-8">@(Model.CustomerNote ?? "(Không có)")</dd>
+                        </dl>
+                    </div>
+
+                    <div class="stage5-summary-section">
+                        <h4>
+                            Chi tiết Tùy chỉnh
+                            <a asp-action="Stage3_Customize" class="btn btn-outline-secondary btn-sm btn-change float-end">Thay đổi</a>
+                        </h4>
+
+                        @if (Model.ProductTypeId == 3) // Lego Sport
+                        {
+                            <p>
+                                <strong>Cầu thủ:</strong> @Model.SelectedSportPlayer?.Name
+                                <span class="text-danger" style="font-weight: 500;">(+@Model.SelectedSportPlayer?.AdditionalPrice.ToString("N0") VNĐ)</span>
+                            </p>
+                        }
+                        else // Lego Tùy chỉnh
+                        {
+                            if (lego1Names != null)
+                            {
+                                <h5 style="font-weight: 700;">Bộ Lego 1 <span class="text-danger">(+@lego1Price.ToString("N0") VNĐ)</span></h5>
+                                <ul>
+                                    @foreach (var name in lego1Names.Where(n => n != null))
+                                    {
+                                        <li>@name</li>
+                                    }
+                                </ul>
+                            }
+                            if (lego2Names != null)
+                            {
+                                <h5 class="mt-3" style="font-weight: 700;">Bộ Lego 2 <span class="text-danger">(+@lego2Price.ToString("N0") VNĐ)</span></h5>
+                                <ul>
+                                    @foreach (var name in lego2Names.Where(n => n != null))
+                                    {
+                                        <li>@name</li>
+                                    }
+                                </ul>
+                            }
+                        }
+                    </div>
+
+                    <div class="stage5-total-block">
+                        <h3>TỔNG TIỀN</h3>
+                        <h1 class="display-4">@Model.TotalPrice.ToString("N0") VNĐ</h1>
+                    </div>
+                </div> <div class="d-flex justify-content-between my-4" style="max-width: 600px; margin-left: auto; margin-right: auto;">
+                    <a asp-action="Stage4_ShippingInfo" class="btn btn-nav-secondary">
+                        &laquo; Quay lại
+                    </a>
+                    <button type="submit" class="btn btn-nav-primary">
+                        XÁC NHẬN & HOÀN TẤT &raquo;
                     </button>
                 </div>
-            </form>
 
+            </form>
         </div>
     </div>
 </div>

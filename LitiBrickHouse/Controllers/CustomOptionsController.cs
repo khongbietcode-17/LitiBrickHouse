@@ -7,138 +7,177 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LitiBrickHouse.Data;
 using LitiBrickHouse.Models;
+using Microsoft.AspNetCore.Hosting; // Đã có
+using Microsoft.AspNetCore.Http;    // Đã có
+using System.IO;                    // Đã có
 
 namespace LitiBrickHouse.Controllers
 {
     public class CustomOptionsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public CustomOptionsController(ApplicationDbContext context)
+        // --- 1. SỬA LẠI CONSTRUCTOR (Thêm tham số webHostEnvironment) ---
+        public CustomOptionsController(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment; // Bây giờ dòng này mới hoạt động đúng
         }
 
-        // GET: CustomOptions
-        // (Trong file Controllers/CustomOptionsController.cs)
-        // XÓA HẲN action Index CŨ, THAY BẰNG CÁI NÀY:
-
-        // GET: CustomOptions
-        public async Task<IActionResult> Index(int? categoryId) // Thêm tham số lọc
+        public async Task<IActionResult> Index(int? categoryId, string filterType)
         {
-            // 1. Tạo một truy vấn (query) cơ sở
+            // (Giữ nguyên code Index của bạn - không thay đổi)
             var query = _context.CustomOptions
-                .Include(c => c.OptionCategory) // Luôn kèm theo thông tin Danh mục
-                .OrderBy(c => c.Name); // Sắp xếp theo tên
+                .Include(c => c.OptionCategory)
+                .AsQueryable();
 
-            // 2. Nếu có lọc (categoryId), thì lọc theo ID đó
-            if (categoryId != null && categoryId > 0)
+            if (filterType == "OutOfStock")
             {
-                query = (IOrderedQueryable<CustomOption>)query
-                    .Where(c => c.OptionCategoryId == categoryId);
+                query = query.Where(x => x.Quantity <= 0);
+                ViewBag.CurrentFilter = "Hàng cần nhập (Hết hàng)";
+            }
+            else if (filterType == "LowStock")
+            {
+                query = query.Where(x => x.Quantity > 0 && x.Quantity < 5);
+                ViewBag.CurrentFilter = "Hàng sắp hết (SL < 5)";
+            }
+            else if (categoryId.HasValue)
+            {
+                query = query.Where(x => x.OptionCategoryId == categoryId);
+                var catName = await _context.OptionCategories
+                    .Where(c => c.Id == categoryId)
+                    .Select(c => c.Name)
+                    .FirstOrDefaultAsync();
+                ViewBag.CurrentFilter = catName;
+                ViewBag.CurrentCategoryId = categoryId;
+            }
+            else
+            {
+                ViewBag.CurrentFilter = "Tất cả phụ kiện";
             }
 
-            // 3. (ĐÂY LÀ PHẦN BỊ THIẾU)
-            // Tải danh sách Danh mục để làm dropdown bộ lọc (menu bên trái)
-            ViewBag.CategoryFilter = new SelectList(
-                await _context.OptionCategories.OrderBy(c => c.Name).ToListAsync(),
-                "Id",
-                "Name",
-                categoryId // Giữ lại giá trị đã lọc
-            );
+            ViewBag.Categories = await _context.OptionCategories.ToListAsync();
+            ViewBag.ActiveFilter = filterType;
 
-            // 4. Thực thi truy vấn và gửi ra View
             return View(await query.ToListAsync());
         }
 
-        // GET: CustomOptions/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var customOption = await _context.CustomOptions
                 .Include(c => c.OptionCategory)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (customOption == null)
-            {
-                return NotFound();
-            }
+            if (customOption == null) return NotFound();
 
             return View(customOption);
         }
 
-        // GET: CustomOptions/Create
         public IActionResult Create()
         {
-            // Tải danh sách Danh mục từ CSDL và gửi qua ViewBag
             ViewBag.OptionCategoryId = new SelectList(
-                _context.OptionCategories.OrderBy(c => c.Name), // Lấy tất cả danh mục, sắp xếp theo Tên
-                "Id",   // Giá trị (value) của option (sẽ là ID)
-                "Name"  // Văn bản (text) hiển thị (sẽ là Tên)
+                _context.OptionCategories.OrderBy(c => c.Name),
+                "Id",
+                "Name"
             );
             return View();
         }
 
-        // POST: CustomOptions/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // --- 2. SỬA LẠI HÀM CREATE (POST) ĐỂ UPLOAD ẢNH ---
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,ImageUrl,ThumbnailUrl,AdditionalPrice,Quantity,Gender,OptionCategoryId")] CustomOption customOption)
+        public async Task<IActionResult> Create(CustomOption customOption, IFormFile fImage, IFormFile fThumb)
         {
-            ModelState.Remove("OptionCategory");
+            // Bỏ qua lỗi validation của ImageUrl/ThumbnailUrl vì ta sẽ tự tạo chúng
+            ModelState.Remove("ImageUrl");
+            ModelState.Remove("ThumbnailUrl");
+            ModelState.Remove("OptionCategory"); 
+
             if (ModelState.IsValid)
             {
+                // -- Xử lý Ảnh Chính (fImage) --
+                if (fImage != null)
+                {
+                    // Tạo tên file ngẫu nhiên để tránh trùng tên
+                    string folderName = "images/options/";
+                    string fileName = Guid.NewGuid().ToString() + "_" + fImage.FileName;
+                    
+                    // Đường dẫn vật lý trên server (C:\...\wwwroot\images\options\)
+                    string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folderName);
+
+                    // Nếu chưa có thư mục thì tạo mới
+                    if (!Directory.Exists(serverFolder)) Directory.CreateDirectory(serverFolder);
+
+                    // Copy file vào thư mục
+                    string filePath = Path.Combine(serverFolder, fileName);
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await fImage.CopyToAsync(stream);
+                    }
+
+                    // Lưu đường dẫn web (ví dụ: /images/options/abc.jpg) vào Database
+                    customOption.ImageUrl = "/" + folderName + fileName;
+                }
+
+                // -- Xử lý Ảnh Nhỏ (fThumb) --
+                if (fThumb != null)
+                {
+                    string folderName = "images/options/";
+                    string fileName = "thumb_" + Guid.NewGuid().ToString() + "_" + fThumb.FileName;
+                    string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folderName);
+
+                    string filePath = Path.Combine(serverFolder, fileName);
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await fThumb.CopyToAsync(stream);
+                    }
+                    customOption.ThumbnailUrl = "/" + folderName + fileName;
+                }
+                else
+                {
+                    // Nếu không chọn ảnh nhỏ, dùng luôn ảnh chính làm ảnh nhỏ
+                    customOption.ThumbnailUrl = customOption.ImageUrl;
+                }
+
                 _context.Add(customOption);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
 
-            // SỬA LỖI: Tải lại ViewBag trước khi trả về View
+            // Nếu lỗi (ví dụ chưa điền tên), load lại danh sách danh mục
             ViewBag.OptionCategoryId = new SelectList(
                 _context.OptionCategories.OrderBy(c => c.Name),
                 "Id",
                 "Name",
-                customOption.OptionCategoryId // Giữ lại giá trị đã chọn
+                customOption.OptionCategoryId
             );
             return View(customOption);
         }
 
-        // GET: CustomOptions/Edit/5
+        // --- CÁC HÀM CÒN LẠI GIỮ NGUYÊN ---
+        
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var customOption = await _context.CustomOptions.FindAsync(id);
-            if (customOption == null)
-            {
-                return NotFound();
-            }
+            if (customOption == null) return NotFound();
+            
             ViewData["OptionCategoryId"] = new SelectList(_context.OptionCategories, "Id", "Name", customOption.OptionCategoryId);
             return View(customOption);
         }
 
-        // POST: CustomOptions/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ImageUrl,ThumbnailUrl,AdditionalPrice,Quantity,Gender,OptionCategoryId")] CustomOption customOption)
         {
-            if (id != customOption.Id)
-            {
-                return NotFound();
-            }
+            if (id != customOption.Id) return NotFound();
+
             ModelState.Remove("OptionCategory");
             if (ModelState.IsValid)
             {
-
                 try
                 {
                     _context.Update(customOption);
@@ -146,14 +185,8 @@ namespace LitiBrickHouse.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CustomOptionExists(customOption.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    if (!CustomOptionExists(customOption.Id)) return NotFound();
+                    else throw;
                 }
                 return RedirectToAction(nameof(Index));
             }
@@ -161,36 +194,24 @@ namespace LitiBrickHouse.Controllers
             return View(customOption);
         }
 
-        // GET: CustomOptions/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var customOption = await _context.CustomOptions
                 .Include(c => c.OptionCategory)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (customOption == null)
-            {
-                return NotFound();
-            }
+            if (customOption == null) return NotFound();
 
             return View(customOption);
         }
 
-        // POST: CustomOptions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var customOption = await _context.CustomOptions.FindAsync(id);
-            if (customOption != null)
-            {
-                _context.CustomOptions.Remove(customOption);
-            }
-
+            if (customOption != null) _context.CustomOptions.Remove(customOption);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

@@ -304,4 +304,4 @@ D:\Đồ án môn ASPNET\LitiBrickHouse\LitiBrickHouse\bin\Debug\net8.0\runtimes
 D:\Đồ án môn ASPNET\LitiBrickHouse\LitiBrickHouse\bin\Debug\net8.0\runtimes\win-arm64\native\e_sqlite3.dll
 D:\Đồ án môn ASPNET\LitiBrickHouse\LitiBrickHouse\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 D:\Đồ án môn ASPNET\LitiBrickHouse\LitiBrickHouse\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
-D:\Đồ án môn ASPNET\LitiBrickHouse\LitiBrickHouse\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\Đồ án môn ASPNET\LitiBrickHouse\LitiBrickHouse\obj\Debug\net8.0\LitiBrickHouse.sourcelink.json

@@ -3,57 +3,59 @@
     ViewData["Title"] = "Giai đoạn 4: Thông tin Giao hàng";
 }
 
-<div class="container">
+<div class="container stage4-container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-lg-10 text-center">
 
-            <h1 class="my-4 text-center">Giai đoạn 4: Thông tin Giao hàng</h1>
-            <p class="lead text-center">Vui lòng nhập thông tin của bạn để chúng tôi giao hàng.</p>
-            <hr />
+            <h1 class="stage4-title">Giai đoạn 4: Thông tin Đặt hàng</h1>
+            <p class="stage4-subtitle">
+                Lưu ý: Bạn hãy nhập thông tin chính xác và đầy đủ để shop đi đơn cho bạn sớm nhất và không sai sót tránh trường hợp hoàn hàng nha!
+            </p>
 
-            <form asp-action="Stage4_ShippingInfo" method="post">
+            <div class="stage4-form-container text-start">
+                <form asp-action="Stage4_ShippingInfo" method="post">
 
-                <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
-                <div class="mb-3">
-                    <label asp-for="SocialMediaName" class="form-label">Tên Mạng Xã hội (Facebook, Zalo... nếu có)</label>
-                    <input asp-for="SocialMediaName" class="form-control" placeholder="Ví dụ: Nguyen Van A (Facebook)" />
-                </div>
-                <div class="d-flex justify-content-between my-4">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
 
-                <div class="mb-3">
-                    <label asp-for="CustomerName" class="form-label">Họ và Tên</label>
-                    <input asp-for="CustomerName" class="form-control" placeholder="Nguyễn Văn A" />
-                    <span asp-validation-for="CustomerName" class="text-danger"></span>
-                </div>
+                    <div class="mb-4">
+                        <label asp-for="SocialMediaName" class="form-label stage4-form-label">Tên Intagrams (VD: liti.brickhouse)</label>
+                        <input asp-for="SocialMediaName" class="form-control stage4-input" />
+                        <span asp-validation-for="SocialMediaName" class="text-danger field-validation-error"></span>
+                    </div>
 
-                <div class="mb-3">
-                    <label asp-for="PhoneNumber" class="form-label">Số Điện Thoại</label>
-                    <input asp-for="PhoneNumber" class="form-control" placeholder="09xxxxxxxx" />
-                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-                </div>
+                    <div class="mb-4">
+                        <label asp-for="CustomerName" class="form-label stage4-form-label">Họ và Tên nhận hàng:</label>
+                        <input asp-for="CustomerName" class="form-control stage4-input" />
+                        <span asp-validation-for="CustomerName" class="text-danger field-validation-error"></span>
+                    </div>
 
-                <div class="mb-3">
-                    <label asp-for="Address" class="form-label">Địa chỉ Nhận hàng</label>
-                    <input asp-for="Address" class="form-control" placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/TP" />
-                    <span asp-validation-for="Address" class="text-danger"></span>
-                </div>
+                    <div class="mb-4">
+                        <label asp-for="PhoneNumber" class="form-label stage4-form-label">Số điện thoại:</label>
+                        <input asp-for="PhoneNumber" class="form-control stage4-input" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger field-validation-error"></span>
+                    </div>
 
-                <div class="d-flex justify-content-between my-4">
-                    <a asp-action="Stage3_Customize" class="btn btn-outline-secondary">
-                        &laquo; Quay lại
-                    </a>
-                    <button type="submit" class="btn btn-primary">
-                        Tiếp tục đến Giai đoạn 5 &raquo;
-                    </button>
-                </div>
+                    <div class="mb-4">
+                        <label asp-for="Address" class="form-label stage4-form-label">Địa chỉ: Tỉnh - Quận/ Huyện - Xã/ Thị Trấn - Địa chỉ cụ thể</label>
+                        <input asp-for="Address" class="form-control stage4-input" />
+                        <span asp-validation-for="Address" class="text-danger field-validation-error"></span>
+                    </div>
 
-            </form>
+                    <div class="d-flex justify-content-between my-5">
+                        <a asp-action="Stage3_Customize" class="btn btn-nav-secondary">
+                            &laquo; Quay lại
+                        </a>
+                        <button type="submit" class="btn btn-nav-primary">
+                            Tiếp tục đến Giai đoạn 5 &raquo;
+                        </button>
+                    </div>
 
+                </form>
+            </div>
         </div>
     </div>
 </div>
 
-@* Thêm section Scripts để kích hoạt validation (bắt lỗi) phía client *@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
